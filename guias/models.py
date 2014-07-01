@@ -11,7 +11,6 @@ class Guia(models.Model):
 	email = models.EmailField()
 	telefono = models.PositiveIntegerField()
 	foto = models.ImageField(upload_to='cargas/')
-
 	descripcion = models.TextField()
 	def __unicode__(self):
 		return self.nombre

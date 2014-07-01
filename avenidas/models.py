@@ -5,7 +5,7 @@ from galerias.models import Galeria
 from hospedajes.models import Hospedaje
 from ciudades.models import Ciudad
 class Volcan(models.Model):
-	name = models.CharField(max_length=25)
+	nombre = models.CharField(max_length=25)
 	altitud = models.PositiveIntegerField()
 	riesgo = models.CharField(max_length=8)
 	foto = models.ImageField(upload_to='cargas/')
@@ -16,4 +16,4 @@ class Volcan(models.Model):
 	hospedaje = models.ManyToManyField(Hospedaje)
 	ciudad = models.ManyToManyField(Ciudad)
 	def __unicode__(self):
-		return self.name
+		return self.nombre

@@ -9,4 +9,4 @@ class Ruta(models.Model):
 	tiempo = models.PositiveSmallIntegerField()
 	imagen = models.ImageField(upload_to='cargas/')
 	def __unicode__(self):
-		return self.name
+		return self.nombre

@@ -165,30 +165,35 @@ public class Main_Win extends javax.swing.JFrame {
 
         jMenu2.setText("Hospedajes");
 
-        jMenuItem8.setText("jMenuItem8");
+        jMenuItem8.setText("Agregar");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem8);
 
-        jMenuItem9.setText("jMenuItem9");
+        jMenuItem9.setText("Actualizar");
         jMenu2.add(jMenuItem9);
 
         menuBar.add(jMenu2);
 
         jMenu3.setText("Rutas");
 
-        jMenuItem10.setText("jMenuItem10");
+        jMenuItem10.setText("Agregar");
         jMenu3.add(jMenuItem10);
 
-        jMenuItem11.setText("jMenuItem11");
+        jMenuItem11.setText("Actualizar");
         jMenu3.add(jMenuItem11);
 
         menuBar.add(jMenu3);
 
         jMenu4.setText("Usuarios");
 
-        jMenuItem12.setText("jMenuItem12");
+        jMenuItem12.setText("Agregar");
         jMenu4.add(jMenuItem12);
 
-        jMenuItem13.setText("jMenuItem13");
+        jMenuItem13.setText("Actualizar");
         jMenu4.add(jMenuItem13);
 
         menuBar.add(jMenu4);
@@ -250,6 +255,10 @@ public class Main_Win extends javax.swing.JFrame {
     private void jMenuItem15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem15ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem15ActionPerformed
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
 
     /**
      * @param args the command line arguments

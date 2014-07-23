@@ -7,6 +7,6 @@ class Ruta(models.Model):
 	origen = models.CharField(max_length=20)
 	destino = models.CharField(max_length=20)
 	tiempo = models.PositiveSmallIntegerField()
-	imagen = models.ImageField(upload_to='cargas/')
+	imagen = models.ImageField(upload_to='cargas/rutas/')
 	def __unicode__(self):
 		return self.nombre

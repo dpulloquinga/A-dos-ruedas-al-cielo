@@ -12,6 +12,7 @@ class Galeria(models.Model):
 
 	imagen_3 = models.ImageField(upload_to='cargas/')
 	descripcion_3 = models.TextField()
+	
 
 	def __unicode__(self):
 		return self.nombre_galeria

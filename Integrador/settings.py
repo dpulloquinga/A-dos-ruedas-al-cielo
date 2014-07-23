@@ -7,6 +7,7 @@ https://docs.djangoproject.com/en/1.6/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.6/ref/settings/
 """
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
@@ -30,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
+    'suit',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -42,6 +44,7 @@ INSTALLED_APPS = (
     'galerias',
     'ciudades',
     'hospedajes',
+    'usuarios',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -60,13 +63,23 @@ WSGI_APPLICATION = 'Integrador.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
-
+# Host: 127.0.0.1
+# Port 3306
+# Username: root
+# Password: -----
+#os.path.join(BASE_DIR, 'db.sqlite3')
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'cielo',
+        'USER' : 'root',
+        'HOST' : '127.0.0.1',
+        'PORT' : '3306',
+           }
 }
+TEMPLATE_CONTEXT_PROCESSORS = TCP + (
+    'django.core.context_processors.request',
+)
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/

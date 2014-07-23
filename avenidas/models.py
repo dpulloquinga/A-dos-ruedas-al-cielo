@@ -8,7 +8,7 @@ class Volcan(models.Model):
 	nombre = models.CharField(max_length=25)
 	altitud = models.PositiveIntegerField()
 	riesgo = models.CharField(max_length=8)
-	foto = models.ImageField(upload_to='cargas/')
+	foto = models.ImageField(upload_to='cargas/volcanes/')
 	descripcion = models.TextField()
 	rutas = models.ForeignKey(Ruta)
 	guias = models.ManyToManyField(Guia)	

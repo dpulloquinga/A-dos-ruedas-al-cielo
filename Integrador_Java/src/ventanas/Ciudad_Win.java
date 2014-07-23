@@ -55,10 +55,12 @@ public class Ciudad_Win extends javax.swing.JInternalFrame {
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Bandera");
+        jLabel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Bandera"));
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, 160, 150));
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Ciudad");
+        jLabel5.setBorder(javax.swing.BorderFactory.createTitledBorder("Ciudad"));
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 170, 170));
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 160, -1));
         getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 160, -1));

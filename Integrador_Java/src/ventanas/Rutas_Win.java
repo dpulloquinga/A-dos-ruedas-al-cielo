@@ -42,6 +42,9 @@ public class Rutas_Win extends javax.swing.JInternalFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
 
+        setClosable(true);
+        setIconifiable(true);
+
         jLabel1.setText("Formulario de ingreso de Rutas");
 
         jLabel2.setText("Nombre:");

@@ -158,6 +158,11 @@ public class Main_Win extends javax.swing.JFrame {
         jMenu1.setText("Galerias");
 
         jMenuItem6.setText("Agregar");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem6);
 
         jMenuItem7.setText("Actualizar");
@@ -188,6 +193,11 @@ public class Main_Win extends javax.swing.JFrame {
         jMenu3.setText("Rutas");
 
         jMenuItem10.setText("Agregar");
+        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem10ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem10);
 
         jMenuItem11.setText("Actualizar");
@@ -198,6 +208,11 @@ public class Main_Win extends javax.swing.JFrame {
         jMenu4.setText("Usuarios");
 
         jMenuItem12.setText("Agregar");
+        jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem12ActionPerformed(evt);
+            }
+        });
         jMenu4.add(jMenuItem12);
 
         jMenuItem13.setText("Actualizar");
@@ -265,6 +280,9 @@ public class Main_Win extends javax.swing.JFrame {
 
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
         // TODO add your handling code here:
+        Hospedajes_Win hospedajes = new Hospedajes_Win();
+        desktopPane.add(hospedajes);
+        hospedajes.setVisible(true);
     }//GEN-LAST:event_jMenuItem8ActionPerformed
 
     private void contentMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contentMenuItemActionPerformed
@@ -274,6 +292,27 @@ public class Main_Win extends javax.swing.JFrame {
        ciudad.setVisible(true);
        
     }//GEN-LAST:event_contentMenuItemActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        // TODO add your handling code here:
+        Galerias_Win galeria = new Galerias_Win();
+        desktopPane.add(galeria);
+        galeria.setVisible(true);
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+        // TODO add your handling code here:
+        Rutas_Win rutas = new Rutas_Win();
+        desktopPane.add(rutas);
+        rutas.setVisible(true);
+    }//GEN-LAST:event_jMenuItem10ActionPerformed
+
+    private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
+        // TODO add your handling code here:
+        Usuarios_Win usuario = new Usuarios_Win();
+        desktopPane.add(usuario);
+        usuario.setVisible(true);
+    }//GEN-LAST:event_jMenuItem12ActionPerformed
 
     /**
      * @param args the command line arguments

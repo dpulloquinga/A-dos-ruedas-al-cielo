@@ -295,6 +295,13 @@ public class Guias_WinEDT extends javax.swing.JInternalFrame implements Runnable
                 txt_email.setText(split[6]);
                 txt_telefono.setText(split[7]);
                 txt_about.setText(split[9]);
+                if ("Masculino".equals(split[4])) {
+                   cb_genero.setSelectedIndex(0);
+                }
+                else
+                {
+                    cb_genero.setSelectedIndex(1);
+                }
             } else
                 JOptionPane.showMessageDialog(rootPane, "No se ha encotrado"
                         + " ningun guia con la cedula ingresada");

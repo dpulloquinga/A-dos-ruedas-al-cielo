@@ -50,7 +50,6 @@ public class Guias_Win extends javax.swing.JInternalFrame implements Runnable{
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         txt_nombre = new javax.swing.JTextField();
         txt_apellido = new javax.swing.JTextField();
@@ -114,10 +113,6 @@ public class Guias_Win extends javax.swing.JInternalFrame implements Runnable{
         jLabel8.setText("Teléfono:");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, -1, -1));
 
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Foto");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 190, -1, -1));
-
         jLabel10.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Descripción:");
@@ -146,10 +141,11 @@ public class Guias_Win extends javax.swing.JInternalFrame implements Runnable{
 
         foto.setForeground(new java.awt.Color(255, 255, 255));
         foto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        foto.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Imagen", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, java.awt.Color.white));
         foto.setMaximumSize(new java.awt.Dimension(75, 75));
         foto.setMinimumSize(new java.awt.Dimension(75, 75));
         foto.setPreferredSize(new java.awt.Dimension(75, 75));
-        getContentPane().add(foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, 130, 120));
+        getContentPane().add(foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, 130, 140));
 
         jButton1.setText("Subir");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -157,7 +153,7 @@ public class Guias_Win extends javax.swing.JInternalFrame implements Runnable{
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 210, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 190, -1, -1));
         getContentPane().add(txt_antiguedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, 140, -1));
 
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
@@ -236,7 +232,6 @@ public class Guias_Win extends javax.swing.JInternalFrame implements Runnable{
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea txt_about;
     private javax.swing.JTextField txt_antiguedad;

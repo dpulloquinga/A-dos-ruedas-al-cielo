@@ -6,6 +6,8 @@
 
 package ventanas;
 
+import java.awt.Component;
+
 /**
  *
  * @author davidpulloquinga
@@ -43,10 +45,10 @@ public class Main_Win extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         exitMenuItem = new javax.swing.JMenuItem();
-        editMenu = new javax.swing.JMenu();
+        menuGuia = new javax.swing.JMenu();
+        updateGuia = new javax.swing.JMenuItem();
         addGuia = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        helpMenu = new javax.swing.JMenu();
+        menuCiudad = new javax.swing.JMenu();
         contentMenuItem = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
@@ -114,39 +116,44 @@ public class Main_Win extends javax.swing.JFrame {
 
         menuBar.add(fileMenu);
 
-        editMenu.setMnemonic('e');
-        editMenu.setText("Guias");
+        menuGuia.setMnemonic('e');
+        menuGuia.setText("Guias");
 
-        addGuia.setMnemonic('t');
-        addGuia.setText("Añadir");
+        updateGuia.setMnemonic('t');
+        updateGuia.setText("Añadir");
+        updateGuia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateGuiaActionPerformed(evt);
+            }
+        });
+        menuGuia.add(updateGuia);
+
+        addGuia.setText("Actualizar");
         addGuia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addGuiaActionPerformed(evt);
             }
         });
-        editMenu.add(addGuia);
+        menuGuia.add(addGuia);
 
-        jMenuItem4.setText("Actualizar");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
-            }
-        });
-        editMenu.add(jMenuItem4);
+        menuBar.add(menuGuia);
 
-        menuBar.add(editMenu);
-
-        helpMenu.setMnemonic('h');
-        helpMenu.setText("Ciudades");
+        menuCiudad.setMnemonic('h');
+        menuCiudad.setText("Ciudades");
 
         contentMenuItem.setMnemonic('c');
         contentMenuItem.setText("Añadir");
-        helpMenu.add(contentMenuItem);
+        contentMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                contentMenuItemActionPerformed(evt);
+            }
+        });
+        menuCiudad.add(contentMenuItem);
 
         jMenuItem5.setText("Actualizar");
-        helpMenu.add(jMenuItem5);
+        menuCiudad.add(jMenuItem5);
 
-        menuBar.add(helpMenu);
+        menuBar.add(menuCiudad);
 
         jMenu1.setText("Galerias");
 
@@ -234,19 +241,19 @@ public class Main_Win extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_exitMenuItemActionPerformed
 
-    private void addGuiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addGuiaActionPerformed
+    private void updateGuiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateGuiaActionPerformed
         // TODO add your handling code here:
          Guias_Win guias = new Guias_Win();
         desktopPane.add(guias);
         guias.setVisible(true);
-    }//GEN-LAST:event_addGuiaActionPerformed
+    }//GEN-LAST:event_updateGuiaActionPerformed
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+    private void addGuiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addGuiaActionPerformed
         // TODO add your handling code here:
         Guias_WinEDT guias_WinEDT = new Guias_WinEDT();
         desktopPane.add(guias_WinEDT);
         guias_WinEDT.setVisible(true);
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
+    }//GEN-LAST:event_addGuiaActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
         // TODO add your handling code here:
@@ -259,6 +266,14 @@ public class Main_Win extends javax.swing.JFrame {
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void contentMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contentMenuItemActionPerformed
+        // TODO add your handling code here:
+        Ciudad_Win ciudad = new Ciudad_Win();
+        Component add = desktopPane.add(ciudad);
+       ciudad.setVisible(true);
+       
+    }//GEN-LAST:event_contentMenuItemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -289,10 +304,8 @@ public class Main_Win extends javax.swing.JFrame {
     private javax.swing.JMenuItem addGuia;
     private javax.swing.JMenuItem contentMenuItem;
     private javax.swing.JDesktopPane desktopPane;
-    private javax.swing.JMenu editMenu;
     private javax.swing.JMenuItem exitMenuItem;
     private javax.swing.JMenu fileMenu;
-    private javax.swing.JMenu helpMenu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
@@ -313,14 +326,16 @@ public class Main_Win extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem19;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JMenuBar menuBar;
+    private javax.swing.JMenu menuCiudad;
+    private javax.swing.JMenu menuGuia;
     private javax.swing.JMenuItem openMenuItem;
+    private javax.swing.JMenuItem updateGuia;
     // End of variables declaration//GEN-END:variables
 
     private static class RunnableImpl implements Runnable {

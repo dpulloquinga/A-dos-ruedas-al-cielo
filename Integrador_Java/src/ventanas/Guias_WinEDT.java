@@ -295,13 +295,35 @@ public class Guias_WinEDT extends javax.swing.JInternalFrame implements Runnable
                 txt_email.setText(split[6]);
                 txt_telefono.setText(split[7]);
                 txt_about.setText(split[9]);
-                if ("Masculino".equals(split[4])) {
-                   cb_genero.setSelectedIndex(0);
+                String ruta1 = split[8];
+                if (ruta1.startsWith("/")) {
+                    Image preview = Toolkit.getDefaultToolkit().getImage(ruta1);
+                    if (preview != null) {
+                        foto.setText("");
+                        ImageIcon icon = new ImageIcon(preview.getScaledInstance(foto.getWidth(), foto.getHeight(), Image.SCALE_DEFAULT));
+                        foto.setIcon(icon);
+                    }
+                    else
+                    {
+                        System.out.println("Error");
+                    }
+                       
+                } else {
+                    String ruta2 = "/Users/davidpulloquinga/Documents/Proyectos/Integrador/Integrador/" + ruta1;
+                    System.out.println(ruta2);
+                     Image preview = Toolkit.getDefaultToolkit().getImage(ruta2);
+                    if (preview != null) {
+                        foto.setText("");
+                        ImageIcon icon = new ImageIcon(preview.getScaledInstance(foto.getWidth(), foto.getHeight(), Image.SCALE_DEFAULT));
+                        foto.setIcon(icon);
+                    }
                 }
-                else
-                {
+                if ("Masculino".equals(split[4])) {
+                    cb_genero.setSelectedIndex(0);
+                } else {
                     cb_genero.setSelectedIndex(1);
                 }
+
             } else
                 JOptionPane.showMessageDialog(rootPane, "No se ha encotrado"
                         + " ningun guia con la cedula ingresada");

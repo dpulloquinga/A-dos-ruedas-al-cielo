@@ -91,3 +91,44 @@ Or download the compressed archive from PyPI, extract it, and inside it run:
 $ python setup.py install
 
 ```
+###Instalar MySql en Windows
+
+Para descargarte MySQL debes dirigirte a la sección de descargas de la página oficial y elegir MySQL Community Server, que es la versión gratuita del producto. Selecciona Windows como plataforma y elige el instalador MSI que mejor se adapte a tu sistema operativo (32 o 64 bits).
+
+El proceso de instalación es muy simple y prácticamente no requiere intervención por parte del usuario.
+
+
+
+Comienza el proceso; sólo nos llevará un par de minutos…
+
+
+
+Cada vez que veo la pantalla de la GNU GPL me lleno de felicidad. No sólo por las condiciones y el precio: es además, para mí, una garantía de profesionalidad.
+
+
+
+Estadísticamente, la instalación típica será la que mejor se adapte a tus necesidades.
+
+
+
+Todo listo; presiona Install cuando quieras.
+
+
+
+Una vez instalado MySQL, la siguiente fase es la configuración del servidor en sí mismo. Asegúrate de que la marca Launch the MySQL Instance Configuration Wizard esté activa.
+
+
+
+Adelante, sin miedo…
+
+
+
+Optamos por Detailed Configuration, de modo que se optimice la configuración del servidor MySQL.
+
+
+
+Ha llegado un momento crucial. Dependiendo del uso que vayamos a darle a nuestro servidor deberemos elegir una opción u otra, cada una con sus propios requerimientos de memoria. Puede que te guste la opción Developer Machine, para desarrolladores, la más apta para un uso de propósito general y la que menos recursos consume. Si vas a compartir servicios en esta máquina, probablemente Server Machine sea tu elección o, si vas a dedicarla exclusivamente como servidor SQL, puedes optar por Dedicated MySQL Server Machine, pues no te importará asignar la totalidad de los recursos a esta función.
+
+
+
+De nuevo, para un uso de propósito general, te recomiendo la opción por defecto, Multifunctional Database.

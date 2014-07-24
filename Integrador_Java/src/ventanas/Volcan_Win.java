@@ -93,10 +93,20 @@ public class Volcan_Win extends javax.swing.JInternalFrame {
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, -1, 104));
 
         btn_cargar.setText("Cargar");
+        btn_cargar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cargarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btn_cargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(394, 189, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_cargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cargarActionPerformed
+        // TODO add your handling code here:
+      
+    }//GEN-LAST:event_btn_cargarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

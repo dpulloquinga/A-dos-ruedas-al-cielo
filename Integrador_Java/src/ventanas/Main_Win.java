@@ -155,6 +155,11 @@ public class Main_Win extends javax.swing.JFrame {
         menuCiudad.add(contentMenuItem);
 
         jMenuItem5.setText("Actualizar");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         menuCiudad.add(jMenuItem5);
 
         menuBar.add(menuCiudad);
@@ -317,6 +322,13 @@ public class Main_Win extends javax.swing.JFrame {
         desktopPane.add(usuario);
         usuario.setVisible(true);
     }//GEN-LAST:event_jMenuItem12ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        // TODO add your handling code here:
+        Ciudad_WinEDT winEDT = new Ciudad_WinEDT();
+        desktopPane.add(winEDT);
+        winEDT.setVisible(true);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     /**
      * @param args the command line arguments

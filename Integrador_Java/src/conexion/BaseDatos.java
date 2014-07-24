@@ -5,6 +5,8 @@
 package conexion;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -134,7 +136,7 @@ public class BaseDatos {
         PreparedStatement ps = null;
         ResultSet rs = null;
         String vuelta = null;
-        String sql = "SELECT * FROM `cielo`.`guias_guia`where `cedula`=" + cedula + ";";
+        String sql = "SELECT * FROM `cielo`.`guias_guia` where `cedula`=" + cedula + ";";
         try {
             conexion.setAutoCommit(false);
             ps = conexion.prepareStatement(sql);
@@ -151,7 +153,10 @@ public class BaseDatos {
                 foto = rs.getString("foto");
                 descripcion = rs.getString("descripcion");
 
-                vuelta = nombre + split + apellido + split + fecha + split + cedul + split + genero + split + antiguedad + split + email + split + telefono + split + foto + split + descripcion;
+                vuelta = nombre + split + apellido + split +
+                        fecha + split + cedul + split + genero + split +
+                        antiguedad + split + email + split + telefono +
+                        split + foto + split + descripcion;
                
             }
         } catch (SQLException ex) {
@@ -277,8 +282,62 @@ public class BaseDatos {
                 Logger.getLogger(BaseDatos.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        
-    return false;
+
+        return false;
     }
-    
+
+    public LinkedList ObtenerCiudad_nombre() {
+        PreparedStatement ps = null;
+        ResultSet rs=null;
+        LinkedList lista = new LinkedList();
+        String sql = "SELECT `nombre` FROM `cielo`.`ciudades_ciudad`;";
+        try {
+            conexion.setAutoCommit(false);
+            ps = conexion.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                lista.add(rs.getString("nombre"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(BaseDatos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        finally{
+            try {
+                ps.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(BaseDatos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+        return lista;
+    }
+
+    public LinkedList ObtenerCiudad_datos(String ciudad) {
+        Statement ps = null;
+        ResultSet rs;
+        LinkedList lista = new LinkedList();
+        System.out.println(ciudad);
+        String sql = "SELECT * FROM `cielo`.`ciudades_ciudad` WHERE nombre = '"+ciudad+"';";
+        try {
+            conexion.setAutoCommit(false);
+            ps = conexion.createStatement();
+            rs = ps.executeQuery(sql);
+            while (rs.next()) {
+                lista.add(rs.getString("nombre"));
+                lista.add(rs.getString("description") );
+                lista.add(rs.getString("poblacion") );
+                lista.add(rs.getString("bandera") );
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(BaseDatos.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                ps.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(BaseDatos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+        return lista;
+    }
 }

@@ -8,4 +8,4 @@ class Ciudad(models.Model):
 	bandera = models.ImageField(upload_to='cargas/ciudades/')
 	imagen =  models.ImageField(upload_to='cargas/ciudades/')
 	def __unicode__(self):
-		return self.nombre
+		return self.nombre-

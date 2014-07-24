@@ -22,8 +22,25 @@ Si estás actualizando tu instalación de Django desde una versión previa neces
 **Instala Django**
 Tienes tres sencillas formas de instalar Django:
 
-Instalar una versión de Django provista por la distribución de tu sistema operativo. Ésta es la opción más rápida para aquellos que tienen sistemas operativos que distribuyen Django.
+nstalar una versión de Django provista por la distribución de tu sistema operativo. Ésta es la opción más rápida para aquellos que tienen sistemas operativos que distribuyen Django.
 
 Instalar una versión oficial publicada. Éste es el mejor método para usuarios que quieren una versión estable y no les importa utilizar una versión de Django ligeramente más antigua.
 
 Instalar la última versión de desarrollo. Ésta es la mejor opción para usuarios que quieren las últimas-y-geniales características y que no tienen miedo a utilizar código nuevo.
+
+####Instalar Paquete PIP en de Python en Windows
+**Paso 1**: Descargar Setuptools y el script que instalará pip.
+
+Todo lo encontrarán aquí:
+
+http://www.pip-installer.org/en/latest/installing.html
+
+Primero descargamos setuptools (ez_setup.py). Aquí incluyo el enlace por si desean ir directo: ez_setup.py
+
+Se os abrirá en el navegador un archivo de texto, lo único que tienen que hacer es click derecho y seleccionar "Guardar como ... ", y se descargará en vuestro ordenador como ez_setup.py (salvo que le cambiéis el nombre).
+
+Lo mismo lo hacemos con un archivo llamado get-pip.py que viene a ser el script que instalará pip. Se descarga en la misma página en el apartado de: Install or Upgrade pip. El procedimiento es idéntico a setuptools, el enlace os llevará a un archivo de texto y una vez abierto de hacen click derecho y "Guardar como ... ". Se guardará como get-pip.py. Aquí os facilito el enlace directo: get-pip.py. 
+
+**Paso 2**: Abrir cmd.exe como administrador.
+
+En el menú de inicio escriben cmd y cuando aparezca el icono, hace un click derecho sobre el y seleccionan la opción de abrir como administrador. Lo engorroso es que se abre en Windows\system32 y tendréis que navegar hasta el directorio donde están alojados los archivos. (en mi caso Descargas).

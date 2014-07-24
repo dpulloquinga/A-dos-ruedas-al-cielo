@@ -75,3 +75,19 @@ En mi caso sería:
 ```
 
 De esa forma ya podrían lanzar pip desde cualquier sitio.
+
+###Instalar Pil 
+Las siguientes instrucciones indican cómo instalar almohada con soporte para la mayoría de los formatos. Ver bibliotecas externas para las características que usted ganar mediante la instalación de las bibliotecas externas primero. 
+Puede instalar la almohadilla con pip :
+```sh
+$ pip install Pillow
+```
+Or easy_install (for installing Python Eggs, as pip does not support them):
+```sh
+$ easy_install Pillow
+```
+Or download the compressed archive from PyPI, extract it, and inside it run:
+```sh
+$ python setup.py install
+
+```

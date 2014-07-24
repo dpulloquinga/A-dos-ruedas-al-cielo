@@ -6,6 +6,11 @@
 
 package ventanas;
 
+import java.awt.Image;
+import java.awt.Toolkit;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+
 /**
  *
  * @author davidpulloquinga
@@ -29,55 +34,75 @@ public class Galerias_Win extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        pic_imagen3 = new javax.swing.JLabel();
+        pic_imagen1 = new javax.swing.JLabel();
+        pic_imagen2 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTextArea4 = new javax.swing.JTextArea();
+        txt_imagen1 = new javax.swing.JTextArea();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTextArea5 = new javax.swing.JTextArea();
+        txt_imagen3 = new javax.swing.JTextArea();
         jScrollPane6 = new javax.swing.JScrollPane();
-        jTextArea6 = new javax.swing.JTextArea();
+        txt_imagen2 = new javax.swing.JTextArea();
         btn_ingresar = new javax.swing.JButton();
         btn_cancelar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        txt_nombre = new javax.swing.JTextField();
 
+        setClosable(true);
+        setIconifiable(true);
+        setPreferredSize(new java.awt.Dimension(595, 595));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Formulario de ingreso de Galerias");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, -1, -1));
 
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("jLabel2");
-        jLabel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Imagen 3"));
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, 240, 130));
+        pic_imagen3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        pic_imagen3.setBorder(javax.swing.BorderFactory.createTitledBorder("Imagen 3"));
+        pic_imagen3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pic_imagen3MouseClicked(evt);
+            }
+        });
+        getContentPane().add(pic_imagen3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 240, 130));
 
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("jLabel2");
-        jLabel6.setBorder(javax.swing.BorderFactory.createTitledBorder("Imagen 1"));
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 240, 130));
+        pic_imagen1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        pic_imagen1.setBorder(javax.swing.BorderFactory.createTitledBorder("Imagen 1"));
+        pic_imagen1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pic_imagen1MouseClicked(evt);
+            }
+        });
+        getContentPane().add(pic_imagen1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 240, 130));
 
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("jLabel2");
-        jLabel7.setBorder(javax.swing.BorderFactory.createTitledBorder("Imagen 2"));
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 240, 130));
+        pic_imagen2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        pic_imagen2.setBorder(javax.swing.BorderFactory.createTitledBorder("Imagen 2"));
+        pic_imagen2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pic_imagen2MouseClicked(evt);
+            }
+        });
+        getContentPane().add(pic_imagen2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 240, 130));
 
-        jTextArea4.setColumns(20);
-        jTextArea4.setRows(5);
-        jScrollPane4.setViewportView(jTextArea4);
+        txt_imagen1.setColumns(20);
+        txt_imagen1.setLineWrap(true);
+        txt_imagen1.setRows(5);
+        jScrollPane4.setViewportView(txt_imagen1);
 
-        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 60, 250, 120));
+        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 270, 120));
 
-        jTextArea5.setColumns(20);
-        jTextArea5.setRows(5);
-        jScrollPane5.setViewportView(jTextArea5);
+        txt_imagen3.setColumns(20);
+        txt_imagen3.setLineWrap(true);
+        txt_imagen3.setRows(5);
+        jScrollPane5.setViewportView(txt_imagen3);
 
-        getContentPane().add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 390, 250, 120));
+        getContentPane().add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 390, 270, 120));
 
-        jTextArea6.setColumns(20);
-        jTextArea6.setRows(5);
-        jScrollPane6.setViewportView(jTextArea6);
+        txt_imagen2.setColumns(20);
+        txt_imagen2.setLineWrap(true);
+        txt_imagen2.setRows(5);
+        jScrollPane6.setViewportView(txt_imagen2);
 
-        getContentPane().add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, 250, 120));
+        getContentPane().add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, 270, 120));
 
         btn_ingresar.setText("Ingresar");
         btn_ingresar.addActionListener(new java.awt.event.ActionListener() {
@@ -85,10 +110,20 @@ public class Galerias_Win extends javax.swing.JInternalFrame {
                 btn_ingresarActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 520, -1, -1));
+        getContentPane().add(btn_ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 520, -1, -1));
 
         btn_cancelar.setText("Cancelar");
-        getContentPane().add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 520, -1, -1));
+        getContentPane().add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 520, -1, -1));
+
+        jLabel2.setText("Nombre de la Galeria:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, -1, -1));
+
+        txt_nombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_nombreActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, 200, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -97,19 +132,79 @@ public class Galerias_Win extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_ingresarActionPerformed
 
+    private void txt_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_nombreActionPerformed
+
+    private void pic_imagen1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pic_imagen1MouseClicked
+        // TODO add your handling code here:
+        final JFileChooser elegirImagen = new JFileChooser();
+        elegirImagen.setMultiSelectionEnabled(false);
+        int o = elegirImagen.showOpenDialog(this);
+        if(o == JFileChooser.APPROVE_OPTION){
+            String ruta = elegirImagen.getSelectedFile().getAbsolutePath();
+            String nombre = elegirImagen.getSelectedFile().getName();
+            System.out.println(ruta);
+            Image preview = Toolkit.getDefaultToolkit().getImage(ruta);
+            if(preview != null){
+                pic_imagen1.setText("");
+                ImageIcon icon = new ImageIcon(preview.getScaledInstance(pic_imagen1.getWidth(), pic_imagen1.getHeight(), Image.SCALE_DEFAULT));
+                pic_imagen1.setIcon(icon);
+            }
+        }
+    }//GEN-LAST:event_pic_imagen1MouseClicked
+
+    private void pic_imagen2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pic_imagen2MouseClicked
+        // TODO add your handling code here:
+        final JFileChooser elegirImagen = new JFileChooser();
+        elegirImagen.setMultiSelectionEnabled(false);
+        int o = elegirImagen.showOpenDialog(this);
+        if(o == JFileChooser.APPROVE_OPTION){
+            String ruta = elegirImagen.getSelectedFile().getAbsolutePath();
+            String nombre = elegirImagen.getSelectedFile().getName();
+            System.out.println(ruta);
+            Image preview = Toolkit.getDefaultToolkit().getImage(ruta);
+            if(preview != null){
+                pic_imagen2.setText("");
+                ImageIcon icon = new ImageIcon(preview.getScaledInstance(pic_imagen2.getWidth(), pic_imagen2.getHeight(), Image.SCALE_DEFAULT));
+                pic_imagen2.setIcon(icon);
+            }
+        }
+    }//GEN-LAST:event_pic_imagen2MouseClicked
+
+    private void pic_imagen3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pic_imagen3MouseClicked
+        // TODO add your handling code here:
+        final JFileChooser elegirImagen = new JFileChooser();
+        elegirImagen.setMultiSelectionEnabled(false);
+        int o = elegirImagen.showOpenDialog(this);
+        if(o == JFileChooser.APPROVE_OPTION){
+            String ruta = elegirImagen.getSelectedFile().getAbsolutePath();
+            String nombre = elegirImagen.getSelectedFile().getName();
+            System.out.println(ruta);
+            Image preview = Toolkit.getDefaultToolkit().getImage(ruta);
+            if(preview != null){
+                pic_imagen3.setText("");
+                ImageIcon icon = new ImageIcon(preview.getScaledInstance(pic_imagen3.getWidth(), pic_imagen3.getHeight(), Image.SCALE_DEFAULT));
+                pic_imagen3.setIcon(icon);
+            }
+        }
+    }//GEN-LAST:event_pic_imagen3MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_cancelar;
     private javax.swing.JButton btn_ingresar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JTextArea jTextArea4;
-    private javax.swing.JTextArea jTextArea5;
-    private javax.swing.JTextArea jTextArea6;
+    private javax.swing.JLabel pic_imagen1;
+    private javax.swing.JLabel pic_imagen2;
+    private javax.swing.JLabel pic_imagen3;
+    private javax.swing.JTextArea txt_imagen1;
+    private javax.swing.JTextArea txt_imagen2;
+    private javax.swing.JTextArea txt_imagen3;
+    private javax.swing.JTextField txt_nombre;
     // End of variables declaration//GEN-END:variables
 }

@@ -35,14 +35,14 @@ public class Hospedajes_Win extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        txt_about = new javax.swing.JTextArea();
+        txt_nombre = new javax.swing.JTextField();
+        txt_costo = new javax.swing.JTextField();
+        txt_telefono = new javax.swing.JTextField();
+        txt_direccion = new javax.swing.JTextField();
+        pic_imagen = new javax.swing.JLabel();
+        btn_ingresar = new javax.swing.JButton();
+        btn_cargar = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -66,46 +66,46 @@ public class Hospedajes_Win extends javax.swing.JInternalFrame {
         jLabel6.setText("Dirección:");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, -1, -1));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txt_about.setColumns(20);
+        txt_about.setRows(5);
+        jScrollPane1.setViewportView(txt_about);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 250, -1));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 250, -1));
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 120, -1));
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 200, -1));
-        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 250, -1));
+        getContentPane().add(txt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 250, -1));
+        getContentPane().add(txt_costo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 120, -1));
+        getContentPane().add(txt_telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 200, -1));
+        getContentPane().add(txt_direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 250, -1));
 
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("Foto");
-        jLabel7.setBorder(javax.swing.BorderFactory.createTitledBorder("Imagen"));
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 30, 150, 160));
+        pic_imagen.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        pic_imagen.setText("Foto");
+        pic_imagen.setBorder(javax.swing.BorderFactory.createTitledBorder("Imagen"));
+        getContentPane().add(pic_imagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 30, 150, 160));
 
-        jButton1.setText("Ingresar");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 250, -1, -1));
+        btn_ingresar.setText("Ingresar");
+        getContentPane().add(btn_ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 250, -1, -1));
 
-        jButton2.setText("Cargar");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 200, -1, -1));
+        btn_cargar.setText("Cargar");
+        getContentPane().add(btn_cargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 200, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btn_cargar;
+    private javax.swing.JButton btn_ingresar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JLabel pic_imagen;
+    private javax.swing.JTextArea txt_about;
+    private javax.swing.JTextField txt_costo;
+    private javax.swing.JTextField txt_direccion;
+    private javax.swing.JTextField txt_nombre;
+    private javax.swing.JTextField txt_telefono;
     // End of variables declaration//GEN-END:variables
 }

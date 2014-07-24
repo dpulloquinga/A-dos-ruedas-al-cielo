@@ -6,6 +6,11 @@
 
 package ventanas;
 
+import java.awt.Image;
+import java.awt.Toolkit;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+
 /**
  *
  * @author davidpulloquinga
@@ -31,17 +36,19 @@ public class Ciudad_Win extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        pic_bandera = new javax.swing.JLabel();
+        pic_ciudad = new javax.swing.JLabel();
+        txt_poblacion = new javax.swing.JTextField();
+        txt_nombre = new javax.swing.JTextField();
+        txt_descripcion = new javax.swing.JTextField();
+        btn_carbar_flag = new javax.swing.JButton();
+        btn_cargar_city = new javax.swing.JButton();
+        btn_ingresar = new javax.swing.JButton();
+        btn_cancelar = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
 
+        setClosable(true);
+        setIconifiable(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Nombre:");
@@ -53,30 +60,40 @@ public class Ciudad_Win extends javax.swing.JInternalFrame {
         jLabel3.setText("Poblacion:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
 
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Bandera");
-        jLabel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Bandera"));
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, 160, 150));
+        pic_bandera.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        pic_bandera.setText("Bandera");
+        pic_bandera.setBorder(javax.swing.BorderFactory.createTitledBorder("Bandera"));
+        getContentPane().add(pic_bandera, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, 160, 150));
 
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Ciudad");
-        jLabel5.setBorder(javax.swing.BorderFactory.createTitledBorder("Ciudad"));
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 170, 170));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 160, -1));
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 160, -1));
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 160, -1));
+        pic_ciudad.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        pic_ciudad.setText("Ciudad");
+        pic_ciudad.setBorder(javax.swing.BorderFactory.createTitledBorder("Ciudad"));
+        getContentPane().add(pic_ciudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 170, 170));
+        getContentPane().add(txt_poblacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 160, -1));
+        getContentPane().add(txt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 160, -1));
+        getContentPane().add(txt_descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 160, -1));
 
-        jButton1.setText("Cargar");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, -1, -1));
+        btn_carbar_flag.setText("Cargar");
+        btn_carbar_flag.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_carbar_flagActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_carbar_flag, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, -1, -1));
 
-        jButton2.setText("Cargar");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 370, -1, -1));
+        btn_cargar_city.setText("Cargar");
+        btn_cargar_city.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cargar_cityActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_cargar_city, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 370, -1, -1));
 
-        jButton3.setText("Ingresar");
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 300, -1, -1));
+        btn_ingresar.setText("Ingresar");
+        getContentPane().add(btn_ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 300, -1, -1));
 
-        jButton4.setText("Cancelar");
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 340, -1, -1));
+        btn_cancelar.setText("Cancelar");
+        getContentPane().add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 340, -1, -1));
 
         jLabel6.setText("Formulario de ingreso de Ciudades");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, -1, -1));
@@ -84,20 +101,56 @@ public class Ciudad_Win extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btn_carbar_flagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_carbar_flagActionPerformed
+        // TODO add your handling code here:
+            final JFileChooser elegirImagen = new JFileChooser();
+        elegirImagen.setMultiSelectionEnabled(false);
+        int o = elegirImagen.showOpenDialog(this);
+        if(o == JFileChooser.APPROVE_OPTION){
+                String ruta = elegirImagen.getSelectedFile().getAbsolutePath();
+                String nombre = elegirImagen.getSelectedFile().getName();
+            System.out.println(ruta);
+            Image preview = Toolkit.getDefaultToolkit().getImage(ruta);
+            if(preview != null){
+                pic_bandera.setText("");
+                ImageIcon icon = new ImageIcon(preview.getScaledInstance(pic_bandera.getWidth(), pic_bandera.getHeight(), Image.SCALE_DEFAULT));
+                pic_bandera.setIcon(icon);
+            }
+        }
+    }//GEN-LAST:event_btn_carbar_flagActionPerformed
+
+    private void btn_cargar_cityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cargar_cityActionPerformed
+        // TODO add your handling code here:
+          final JFileChooser elegirImagen = new JFileChooser();
+        elegirImagen.setMultiSelectionEnabled(false);
+        int o = elegirImagen.showOpenDialog(this);
+        if(o == JFileChooser.APPROVE_OPTION){
+                String ruta = elegirImagen.getSelectedFile().getAbsolutePath();
+                String nombre = elegirImagen.getSelectedFile().getName();
+            System.out.println(ruta);
+            Image preview = Toolkit.getDefaultToolkit().getImage(ruta);
+            if(preview != null){
+                pic_ciudad.setText("");
+                ImageIcon icon = new ImageIcon(preview.getScaledInstance(pic_ciudad.getWidth(), pic_ciudad.getHeight(), Image.SCALE_DEFAULT));
+                pic_ciudad.setIcon(icon);
+            }
+        }
+    }//GEN-LAST:event_btn_cargar_cityActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton btn_cancelar;
+    private javax.swing.JButton btn_carbar_flag;
+    private javax.swing.JButton btn_cargar_city;
+    private javax.swing.JButton btn_ingresar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JLabel pic_bandera;
+    private javax.swing.JLabel pic_ciudad;
+    private javax.swing.JTextField txt_descripcion;
+    private javax.swing.JTextField txt_nombre;
+    private javax.swing.JTextField txt_poblacion;
     // End of variables declaration//GEN-END:variables
 }

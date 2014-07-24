@@ -60,11 +60,11 @@ public class Guias_Win extends javax.swing.JInternalFrame implements Runnable{
         jScrollPane1 = new javax.swing.JScrollPane();
         txt_about = new javax.swing.JTextArea();
         foto = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btn_subir = new javax.swing.JButton();
         txt_antiguedad = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btn_ingresar = new javax.swing.JButton();
+        btn_cancelar = new javax.swing.JButton();
         txt_born = new javax.swing.JTextField();
         Fondo = new javax.swing.JLabel();
 
@@ -147,29 +147,29 @@ public class Guias_Win extends javax.swing.JInternalFrame implements Runnable{
         foto.setPreferredSize(new java.awt.Dimension(75, 75));
         getContentPane().add(foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, 130, 140));
 
-        jButton1.setText("Subir");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btn_subir.setText("Subir");
+        btn_subir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btn_subirActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 190, -1, -1));
+        getContentPane().add(btn_subir, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 190, -1, -1));
         getContentPane().add(txt_antiguedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, 140, -1));
 
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Formulario de Ingreso de Guias");
         getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, -1, -1));
 
-        jButton2.setText("Ingresar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btn_ingresar.setText("Ingresar");
+        btn_ingresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btn_ingresarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 430, -1, -1));
+        getContentPane().add(btn_ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 430, -1, -1));
 
-        jButton3.setText("Cancelar");
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 430, -1, -1));
+        btn_cancelar.setText("Cancelar");
+        getContentPane().add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 430, -1, -1));
         getContentPane().add(txt_born, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 100, -1));
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/graficas/panamericana_cotopaxi.jpg"))); // NOI18N
@@ -178,7 +178,7 @@ public class Guias_Win extends javax.swing.JInternalFrame implements Runnable{
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btn_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ingresarActionPerformed
         // TODO add your handling code here:
         ValidacionCedula validacion = new ValidacionCedula();
 
@@ -189,9 +189,9 @@ public class Guias_Win extends javax.swing.JInternalFrame implements Runnable{
             JOptionPane.showMessageDialog(rootPane, "Cédula incorrecta");
         }
 
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btn_ingresarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btn_subirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_subirActionPerformed
         // TODO add your handling code here:
                 final JFileChooser elegirImagen = new JFileChooser();
         elegirImagen.setMultiSelectionEnabled(false);
@@ -207,7 +207,7 @@ public class Guias_Win extends javax.swing.JInternalFrame implements Runnable{
                 foto.setIcon(icon);
             }
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btn_subirActionPerformed
 
     private void txt_cedulaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_cedulaKeyTyped
         // TODO add your handling code here:
@@ -217,11 +217,11 @@ public class Guias_Win extends javax.swing.JInternalFrame implements Runnable{
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Fondo;
+    private javax.swing.JButton btn_cancelar;
+    private javax.swing.JButton btn_ingresar;
+    private javax.swing.JButton btn_subir;
     private javax.swing.JComboBox cb_genero;
     private javax.swing.JLabel foto;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;

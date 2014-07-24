@@ -6,6 +6,7 @@
 
 package ventanas;
 
+import conexion.BaseDatos;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
@@ -20,6 +21,10 @@ public class Ciudad_Win extends javax.swing.JInternalFrame {
     /**
      * Creates new form Ciudad_Win
      */
+    private static final String HOST="localhost";
+    private static final String USER="root";
+    private static final String PASS="";
+    String rutacity,ruta;
     public Ciudad_Win() {
         initComponents();
     }
@@ -61,12 +66,10 @@ public class Ciudad_Win extends javax.swing.JInternalFrame {
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
 
         pic_bandera.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        pic_bandera.setText("Bandera");
         pic_bandera.setBorder(javax.swing.BorderFactory.createTitledBorder("Bandera"));
         getContentPane().add(pic_bandera, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, 160, 150));
 
         pic_ciudad.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        pic_ciudad.setText("Ciudad");
         pic_ciudad.setBorder(javax.swing.BorderFactory.createTitledBorder("Ciudad"));
         getContentPane().add(pic_ciudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 170, 170));
         getContentPane().add(txt_poblacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 160, -1));
@@ -90,6 +93,11 @@ public class Ciudad_Win extends javax.swing.JInternalFrame {
         getContentPane().add(btn_cargar_city, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 370, -1, -1));
 
         btn_ingresar.setText("Ingresar");
+        btn_ingresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ingresarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btn_ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 300, -1, -1));
 
         btn_cancelar.setText("Cancelar");
@@ -107,7 +115,7 @@ public class Ciudad_Win extends javax.swing.JInternalFrame {
         elegirImagen.setMultiSelectionEnabled(false);
         int o = elegirImagen.showOpenDialog(this);
         if(o == JFileChooser.APPROVE_OPTION){
-                String ruta = elegirImagen.getSelectedFile().getAbsolutePath();
+                ruta = elegirImagen.getSelectedFile().getAbsolutePath();
                 String nombre = elegirImagen.getSelectedFile().getName();
             System.out.println(ruta);
             Image preview = Toolkit.getDefaultToolkit().getImage(ruta);
@@ -125,10 +133,10 @@ public class Ciudad_Win extends javax.swing.JInternalFrame {
         elegirImagen.setMultiSelectionEnabled(false);
         int o = elegirImagen.showOpenDialog(this);
         if(o == JFileChooser.APPROVE_OPTION){
-                String ruta = elegirImagen.getSelectedFile().getAbsolutePath();
+                rutacity = elegirImagen.getSelectedFile().getAbsolutePath();
                 String nombre = elegirImagen.getSelectedFile().getName();
-            System.out.println(ruta);
-            Image preview = Toolkit.getDefaultToolkit().getImage(ruta);
+            System.out.println(rutacity);
+            Image preview = Toolkit.getDefaultToolkit().getImage(rutacity);
             if(preview != null){
                 pic_ciudad.setText("");
                 ImageIcon icon = new ImageIcon(preview.getScaledInstance(pic_ciudad.getWidth(), pic_ciudad.getHeight(), Image.SCALE_DEFAULT));
@@ -136,6 +144,12 @@ public class Ciudad_Win extends javax.swing.JInternalFrame {
             }
         }
     }//GEN-LAST:event_btn_cargar_cityActionPerformed
+
+    private void btn_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ingresarActionPerformed
+        // TODO add your handling code here:
+        BaseDatos base = new BaseDatos(HOST,  USER, PASS);
+        base.addCiudad(txt_nombre.getText(), txt_descripcion.getText(), txt_poblacion.getText(), ruta, rutacity);
+    }//GEN-LAST:event_btn_ingresarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

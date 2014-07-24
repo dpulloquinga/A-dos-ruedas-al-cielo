@@ -42,6 +42,11 @@
             </MenuItem>
           </SubComponents>
         </Menu>
+        <Menu class="javax.swing.JMenu" name="volcanes">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Volcanes"/>
+          </Properties>
+        </Menu>
         <Menu class="javax.swing.JMenu" name="menuGuia">
           <Properties>
             <Property name="mnemonic" type="int" value="101"/>

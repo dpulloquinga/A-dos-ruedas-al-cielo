@@ -6,6 +6,13 @@
 
 package ventanas;
 
+import conexion.BaseDatos;
+import java.awt.Image;
+import java.awt.Toolkit;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author davidpulloquinga
@@ -15,6 +22,10 @@ public class Hospedajes_Win extends javax.swing.JInternalFrame {
     /**
      * Creates new form Hospedajes_Win
      */
+        private static final String HOST="localhost";
+    private static final String USER="root";
+    private static final String PASS="";
+    String ruta;
     public Hospedajes_Win() {
         initComponents();
     }
@@ -82,13 +93,51 @@ public class Hospedajes_Win extends javax.swing.JInternalFrame {
         getContentPane().add(pic_imagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 30, 150, 160));
 
         btn_ingresar.setText("Ingresar");
+        btn_ingresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ingresarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btn_ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 250, -1, -1));
 
         btn_cargar.setText("Cargar");
+        btn_cargar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cargarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btn_cargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 200, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_cargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cargarActionPerformed
+        // TODO add your handling code here:
+        final JFileChooser elegirImagen = new JFileChooser();
+        elegirImagen.setMultiSelectionEnabled(false);
+        int o = elegirImagen.showOpenDialog(this);
+        if(o == JFileChooser.APPROVE_OPTION){
+                ruta = elegirImagen.getSelectedFile().getAbsolutePath();
+                String nombre = elegirImagen.getSelectedFile().getName();
+            System.out.println(ruta);
+            Image preview = Toolkit.getDefaultToolkit().getImage(ruta);
+            if(preview != null){
+                pic_imagen.setText("");
+                ImageIcon icon = new ImageIcon(preview.getScaledInstance(pic_imagen.getWidth(), pic_imagen.getHeight(), Image.SCALE_DEFAULT));
+                pic_imagen.setIcon(icon);
+            }
+        }
+    }//GEN-LAST:event_btn_cargarActionPerformed
+
+    private void btn_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ingresarActionPerformed
+        // TODO add your handling code here:
+        BaseDatos bd = new BaseDatos(HOST,USER, PASS);
+        if (bd.addHospedaje(txt_nombre.getText(), txt_about.getText(), Integer.parseInt(txt_costo.getText()),txt_telefono.getText(),txt_direccion.getText(), ruta)) {
+            JOptionPane.showMessageDialog(rootPane,"Hospedaje ingresado correctamente");
+        }
+        else
+            JOptionPane.showMessageDialog(rootPane,"Ha ocurrido un error");
+    }//GEN-LAST:event_btn_ingresarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

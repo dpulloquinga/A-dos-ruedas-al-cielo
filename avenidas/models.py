@@ -14,6 +14,6 @@ class Volcan(models.Model):
 	guias = models.ManyToManyField(Guia)	
 	galerias = models.ForeignKey(Galeria)
 	hospedaje = models.ManyToManyField(Hospedaje)
-	ciudad = models.ManyToManyField(Ciudad)
+	ciudad = models.OneToOneField(Ciudad)
 	def __unicode__(self):
 		return self.nombre

@@ -41,6 +41,33 @@ public class BaseDatos {
         return false;
     }
 
+    public boolean addCiudad(String nombre,String descripcion,String poblacion,String bandera,String ciudad){
+        PreparedStatement ps = null;
+        String sql = "INSERT INTO `cielo`.`ciudades_ciudad`(`nombre`,`description`,`poblacion`,`bandera`,`imagen`)\n" +
+"VALUES(?,?,?,?,?);";
+        try {
+            conexion.setAutoCommit(false);
+            ps = conexion.prepareStatement(sql);
+            ps.setString(1, nombre);
+            ps.setString(2, descripcion);
+            ps.setString(3, poblacion);
+            ps.setString(4, bandera);
+            ps.setString(5, ciudad);
+            ps.executeUpdate();
+            conexion.commit();
+            return true;
+        } catch (SQLException e) {
+            System.out.println(e);
+        }finally {
+            try {
+                ps.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(BaseDatos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+    return false;
+    }
     public boolean addGuia(String nombre, String apellido, String fecha,
             String cedula, String genero, String antiguedad, String email,
             String telefono, String foto, String about) {
@@ -140,4 +167,118 @@ public class BaseDatos {
          System.out.println(vuelta);
         return vuelta;
     }
+    
+    public boolean addRuta(String nombre,String origen,String destino,String tiempo,String imagen){
+        PreparedStatement ps = null;
+        String sql = "INSERT INTO `cielo`.`rutas_ruta`(`nombre`,`origen`,`destino`,`tiempo`,`imagen`)\n" +
+"VALUES(?,?,?,?,?);";
+        try {
+            conexion.setAutoCommit(false);
+            ps = conexion.prepareStatement(sql);
+            ps.setString(1, nombre);
+            ps.setString(2, origen);
+            ps.setString(3, destino);
+            ps.setString(4, tiempo);
+            ps.setString(5, imagen);
+            ps.executeUpdate();
+            conexion.commit();
+            return true;
+        } catch (SQLException e) {
+            System.out.println(e);
+        }finally {
+            try {
+                ps.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(BaseDatos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+    return false;
+    }
+    public boolean addGaleria(String nombre_galeria,String imagen_1,String descripcion_1,String imagen_2,String descripcion_2,String imagen_3,String descripcion_3){
+        PreparedStatement ps = null;
+        String sql = "INSERT INTO `cielo`.`galerias_galeria`(`nombre_galeria`,`imagen_1`,`descripcion_1`,`imagen_2`,`descripcion_2`,`imagen_3`,`descripcion_3`)\n" +
+"VALUES(?,?,?,?,?,?,?);";
+        try {
+            conexion.setAutoCommit(false);
+            ps = conexion.prepareStatement(sql);
+            ps.setString(1, nombre_galeria);
+            ps.setString(2, imagen_1);
+            ps.setString(3, descripcion_1);
+            ps.setString(4, imagen_2);
+            ps.setString(5, descripcion_2);
+            ps.setString(6, imagen_3);
+            ps.setString(7, descripcion_3);
+            ps.executeUpdate();
+            conexion.commit();
+            return true;
+        } catch (SQLException e) {
+            System.out.println(e);
+        }finally {
+            try {
+                ps.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(BaseDatos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+    return false;
+    }
+    public boolean addHospedaje(String nombre,String descripcion,int costo,String telefono,String direccion,String imagen){
+        PreparedStatement ps = null;
+        String sql = "INSERT INTO `cielo`.`hospedajes_hospedaje`(`nombre`,`descripcion`,`costo`,`telefono`,`direccion`,`imagen`)\n" +
+"VALUES(?,?,?,?,?,?);";
+        try {
+            conexion.setAutoCommit(false);
+            ps = conexion.prepareStatement(sql);
+            ps.setString(1, nombre);
+            ps.setString(2, descripcion);
+            ps.setInt(3, costo);
+            ps.setString(4, telefono);
+            ps.setString(5, direccion);
+            ps.setString(6, imagen);
+            ps.executeUpdate();
+            conexion.commit();
+            return true;
+        } catch (SQLException e) {
+            System.out.println(e);
+        }finally {
+            try {
+                ps.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(BaseDatos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+    return false;
+    }
+    
+    public boolean addUser(String nickname,String password,String email,String nombre,String apellido){
+        PreparedStatement ps = null;
+        String sql = "INSERT INTO `cielo`.`usuarios_usuario`(`nickname`,`password`,`email`,`nombre`,`apellido`)\n" +
+"VALUES(?,?,?,?,?);";
+        try {
+            conexion.setAutoCommit(false);
+            ps = conexion.prepareStatement(sql);
+            ps.setString(1, nickname);
+            ps.setString(2, password);
+            ps.setString(3, email);
+            ps.setString(4, nombre);
+            ps.setString(5, apellido);
+            ps.executeUpdate();
+            conexion.commit();
+            return true;
+        } catch (SQLException e) {
+            System.out.println(e);
+        }finally {
+            try {
+                ps.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(BaseDatos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+    return false;
+    }
+    
 }

@@ -6,6 +6,13 @@
 
 package ventanas;
 
+import conexion.BaseDatos;
+import java.awt.Image;
+import java.awt.Toolkit;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author davidpulloquinga
@@ -15,6 +22,10 @@ public class Rutas_Win extends javax.swing.JInternalFrame {
     /**
      * Creates new form Rutas_Win
      */
+    private static final String HOST="localhost";
+    private static final String USER="root";
+    private static final String PASS="";
+    String ruta;
     public Rutas_Win() {
         initComponents();
     }
@@ -56,12 +67,21 @@ public class Rutas_Win extends javax.swing.JInternalFrame {
         jLabel5.setText("Tiempo:");
 
         pic_imagen.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        pic_imagen.setText("jLabel6");
         pic_imagen.setBorder(javax.swing.BorderFactory.createTitledBorder("Imagen"));
 
         btn_cargar.setText("Cargar");
+        btn_cargar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cargarActionPerformed(evt);
+            }
+        });
 
         btn_ingresar.setText("Ingresar");
+        btn_ingresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ingresarActionPerformed(evt);
+            }
+        });
 
         btn_cancelar.setText("Cancelar");
 
@@ -140,6 +160,34 @@ public class Rutas_Win extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_cargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cargarActionPerformed
+        // TODO add your handling code here:
+        final JFileChooser elegirImagen = new JFileChooser();
+        elegirImagen.setMultiSelectionEnabled(false);
+        int o = elegirImagen.showOpenDialog(this);
+        if(o == JFileChooser.APPROVE_OPTION){
+               ruta = elegirImagen.getSelectedFile().getAbsolutePath();
+                String nombre = elegirImagen.getSelectedFile().getName();
+            System.out.println(ruta);
+            Image preview = Toolkit.getDefaultToolkit().getImage(ruta);
+            if(preview != null){
+                pic_imagen.setText("");
+                ImageIcon icon = new ImageIcon(preview.getScaledInstance(pic_imagen.getWidth(), pic_imagen.getHeight(), Image.SCALE_DEFAULT));
+                pic_imagen.setIcon(icon);
+            }
+        }
+    }//GEN-LAST:event_btn_cargarActionPerformed
+
+    private void btn_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ingresarActionPerformed
+        // TODO add your handling code here:
+        BaseDatos bd = new  BaseDatos(HOST,USER,PASS);
+        if (bd.addRuta(txt_nombre.getText(), txt_origen.getText(), txt_destino.getText(),txt_tiempo.getText(),ruta)) {
+            JOptionPane.showMessageDialog(rootPane,"Ruta Ingresada correctamente");
+        }
+        else
+            JOptionPane.showMessageDialog(rootPane,"Ha ocurrido un error, intente nuevamente");
+    }//GEN-LAST:event_btn_ingresarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

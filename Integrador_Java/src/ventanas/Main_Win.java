@@ -45,6 +45,7 @@ public class Main_Win extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         exitMenuItem = new javax.swing.JMenuItem();
+        volcanes = new javax.swing.JMenu();
         menuGuia = new javax.swing.JMenu();
         updateGuia = new javax.swing.JMenuItem();
         addGuia = new javax.swing.JMenuItem();
@@ -115,6 +116,9 @@ public class Main_Win extends javax.swing.JFrame {
         fileMenu.add(exitMenuItem);
 
         menuBar.add(fileMenu);
+
+        volcanes.setText("Volcanes");
+        menuBar.add(volcanes);
 
         menuGuia.setMnemonic('e');
         menuGuia.setText("Guias");
@@ -375,6 +379,7 @@ public class Main_Win extends javax.swing.JFrame {
     private javax.swing.JMenu menuGuia;
     private javax.swing.JMenuItem openMenuItem;
     private javax.swing.JMenuItem updateGuia;
+    private javax.swing.JMenu volcanes;
     // End of variables declaration//GEN-END:variables
 
     private static class RunnableImpl implements Runnable {

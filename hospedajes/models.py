@@ -6,7 +6,7 @@ class Hospedaje(models.Model):
 	nombre = models.CharField(max_length=25)
 	descripcion = models.TextField()
 	costo = models.PositiveSmallIntegerField()
-	telefono = models.PositiveIntegerField()
+	telefono = models.CharField(max_length=12)
 	direccion = models.CharField(max_length=25)
 	imagen =  models.ImageField(upload_to='cargas/ciudades/')
 

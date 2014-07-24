@@ -6,10 +6,12 @@
 
 package ventanas;
 
+import conexion.BaseDatos;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -20,6 +22,10 @@ public class Galerias_Win extends javax.swing.JInternalFrame {
     /**
      * Creates new form Galerias_Win
      */
+    private static final String HOST="localhost";
+    private static final String USER="root";
+    private static final String PASS="";
+    String ruta1,ruta2,ruta3;
     public Galerias_Win() {
         initComponents();
     }
@@ -38,11 +44,11 @@ public class Galerias_Win extends javax.swing.JInternalFrame {
         pic_imagen1 = new javax.swing.JLabel();
         pic_imagen2 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        txt_imagen1 = new javax.swing.JTextArea();
+        txt_about1 = new javax.swing.JTextArea();
         jScrollPane5 = new javax.swing.JScrollPane();
-        txt_imagen3 = new javax.swing.JTextArea();
+        txt_about3 = new javax.swing.JTextArea();
         jScrollPane6 = new javax.swing.JScrollPane();
-        txt_imagen2 = new javax.swing.JTextArea();
+        txt_about2 = new javax.swing.JTextArea();
         btn_ingresar = new javax.swing.JButton();
         btn_cancelar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -83,24 +89,24 @@ public class Galerias_Win extends javax.swing.JInternalFrame {
         });
         getContentPane().add(pic_imagen2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 240, 130));
 
-        txt_imagen1.setColumns(20);
-        txt_imagen1.setLineWrap(true);
-        txt_imagen1.setRows(5);
-        jScrollPane4.setViewportView(txt_imagen1);
+        txt_about1.setColumns(20);
+        txt_about1.setLineWrap(true);
+        txt_about1.setRows(5);
+        jScrollPane4.setViewportView(txt_about1);
 
         getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 270, 120));
 
-        txt_imagen3.setColumns(20);
-        txt_imagen3.setLineWrap(true);
-        txt_imagen3.setRows(5);
-        jScrollPane5.setViewportView(txt_imagen3);
+        txt_about3.setColumns(20);
+        txt_about3.setLineWrap(true);
+        txt_about3.setRows(5);
+        jScrollPane5.setViewportView(txt_about3);
 
         getContentPane().add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 390, 270, 120));
 
-        txt_imagen2.setColumns(20);
-        txt_imagen2.setLineWrap(true);
-        txt_imagen2.setRows(5);
-        jScrollPane6.setViewportView(txt_imagen2);
+        txt_about2.setColumns(20);
+        txt_about2.setLineWrap(true);
+        txt_about2.setRows(5);
+        jScrollPane6.setViewportView(txt_about2);
 
         getContentPane().add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, 270, 120));
 
@@ -130,6 +136,12 @@ public class Galerias_Win extends javax.swing.JInternalFrame {
 
     private void btn_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ingresarActionPerformed
         // TODO add your handling code here:
+        BaseDatos bd = new BaseDatos(HOST, USER,PASS);
+        if (bd.addGaleria(txt_nombre.getText(), ruta1, txt_about1.getText(), ruta2, txt_about2.getText(), ruta3, txt_about3.getText())) {
+            JOptionPane.showMessageDialog(rootPane,"Galeria ingresado correctamente: "+txt_nombre.getText());
+        }
+        else
+            JOptionPane.showMessageDialog(rootPane, "Se ha producido un error");
     }//GEN-LAST:event_btn_ingresarActionPerformed
 
     private void txt_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nombreActionPerformed
@@ -142,10 +154,10 @@ public class Galerias_Win extends javax.swing.JInternalFrame {
         elegirImagen.setMultiSelectionEnabled(false);
         int o = elegirImagen.showOpenDialog(this);
         if(o == JFileChooser.APPROVE_OPTION){
-            String ruta = elegirImagen.getSelectedFile().getAbsolutePath();
+             ruta1 = elegirImagen.getSelectedFile().getAbsolutePath();
             String nombre = elegirImagen.getSelectedFile().getName();
-            System.out.println(ruta);
-            Image preview = Toolkit.getDefaultToolkit().getImage(ruta);
+            System.out.println(ruta1);
+            Image preview = Toolkit.getDefaultToolkit().getImage(ruta1);
             if(preview != null){
                 pic_imagen1.setText("");
                 ImageIcon icon = new ImageIcon(preview.getScaledInstance(pic_imagen1.getWidth(), pic_imagen1.getHeight(), Image.SCALE_DEFAULT));
@@ -160,10 +172,10 @@ public class Galerias_Win extends javax.swing.JInternalFrame {
         elegirImagen.setMultiSelectionEnabled(false);
         int o = elegirImagen.showOpenDialog(this);
         if(o == JFileChooser.APPROVE_OPTION){
-            String ruta = elegirImagen.getSelectedFile().getAbsolutePath();
+            ruta2 = elegirImagen.getSelectedFile().getAbsolutePath();
             String nombre = elegirImagen.getSelectedFile().getName();
-            System.out.println(ruta);
-            Image preview = Toolkit.getDefaultToolkit().getImage(ruta);
+            System.out.println(ruta2);
+            Image preview = Toolkit.getDefaultToolkit().getImage(ruta2);
             if(preview != null){
                 pic_imagen2.setText("");
                 ImageIcon icon = new ImageIcon(preview.getScaledInstance(pic_imagen2.getWidth(), pic_imagen2.getHeight(), Image.SCALE_DEFAULT));
@@ -178,10 +190,10 @@ public class Galerias_Win extends javax.swing.JInternalFrame {
         elegirImagen.setMultiSelectionEnabled(false);
         int o = elegirImagen.showOpenDialog(this);
         if(o == JFileChooser.APPROVE_OPTION){
-            String ruta = elegirImagen.getSelectedFile().getAbsolutePath();
+             ruta3 = elegirImagen.getSelectedFile().getAbsolutePath();
             String nombre = elegirImagen.getSelectedFile().getName();
-            System.out.println(ruta);
-            Image preview = Toolkit.getDefaultToolkit().getImage(ruta);
+            System.out.println(ruta3);
+            Image preview = Toolkit.getDefaultToolkit().getImage(ruta3);
             if(preview != null){
                 pic_imagen3.setText("");
                 ImageIcon icon = new ImageIcon(preview.getScaledInstance(pic_imagen3.getWidth(), pic_imagen3.getHeight(), Image.SCALE_DEFAULT));
@@ -202,9 +214,9 @@ public class Galerias_Win extends javax.swing.JInternalFrame {
     private javax.swing.JLabel pic_imagen1;
     private javax.swing.JLabel pic_imagen2;
     private javax.swing.JLabel pic_imagen3;
-    private javax.swing.JTextArea txt_imagen1;
-    private javax.swing.JTextArea txt_imagen2;
-    private javax.swing.JTextArea txt_imagen3;
+    private javax.swing.JTextArea txt_about1;
+    private javax.swing.JTextArea txt_about2;
+    private javax.swing.JTextArea txt_about3;
     private javax.swing.JTextField txt_nombre;
     // End of variables declaration//GEN-END:variables
 }

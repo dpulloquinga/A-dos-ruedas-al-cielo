@@ -6,6 +6,9 @@
 
 package ventanas;
 
+import conexion.BaseDatos;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author davidpulloquinga
@@ -15,6 +18,9 @@ public class Usuarios_Win extends javax.swing.JInternalFrame {
     /**
      * Creates new form Usuarios_Win
      */
+    private static final String HOST="localhost";
+    private static final String USER="root";
+    private static final String PASS="";
     public Usuarios_Win() {
         initComponents();
     }
@@ -70,6 +76,11 @@ public class Usuarios_Win extends javax.swing.JInternalFrame {
         getContentPane().add(txt_apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(92, 222, 161, -1));
 
         btn_agregar.setText("Agregar");
+        btn_agregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_agregarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btn_agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(271, 64, -1, -1));
 
         btn_cancelar.setText("Cancelar");
@@ -77,6 +88,22 @@ public class Usuarios_Win extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregarActionPerformed
+        // TODO add your handling code here:
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                BaseDatos bd = new BaseDatos(HOST,USER,PASS);
+                if (bd.addUser(txt_nick.getText(), txt_pass.getText(), txt_email.getText(),txt_nombre.getText(), txt_apellido.getText())) {
+                    JOptionPane.showMessageDialog(rootPane, "Usuario Ingresada conrrectamente");
+                }
+                else
+                    JOptionPane.showMessageDialog(rootPane,"Se ha producido un error");
+            }
+        };
+        runnable.run();
+    }//GEN-LAST:event_btn_agregarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

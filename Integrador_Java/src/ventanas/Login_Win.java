@@ -18,13 +18,11 @@ public class Login_Win extends javax.swing.JFrame implements Runnable{
     /**
      * Creates new form Login_Win
      */
-    private static final String HOST="localhost";
-    private static final String USER="root";
-    private static final String PASS="";
+
     private   boolean estado;
     private String usuario,password;
    
-    BaseDatos bd = new BaseDatos(HOST, USER,PASS);
+    BaseDatos bd = new BaseDatos();
     Main_Win main = new Main_Win();
     public Login_Win() {
         initComponents();

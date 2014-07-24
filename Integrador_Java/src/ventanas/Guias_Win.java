@@ -25,9 +25,7 @@ public class Guias_Win extends javax.swing.JInternalFrame implements Runnable{
     /**
      * Creates new form Guias_Win
      */
-    private static final String HOST="localhost";
-    private static final String USER="root";
-    private static final String PASS="";
+
     String ruta,nombre;
     public Guias_Win() {
         initComponents();
@@ -245,7 +243,7 @@ public class Guias_Win extends javax.swing.JInternalFrame implements Runnable{
 
     @Override
     public void run() {
-        BaseDatos bd = new BaseDatos(HOST, USER, PASS);
+        BaseDatos bd = new BaseDatos();
         bd.addGuia(txt_nombre.getText(), txt_apellido.getText(), txt_born.getText(), txt_cedula.getText(), cb_genero.getSelectedItem().toString(), txt_antiguedad.getText(), txt_email.getText(), txt_telefono.getText(), ruta, txt_about.getText());
         JOptionPane.showMessageDialog(rootPane,"Ingreso Exitoso");
         

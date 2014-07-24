@@ -21,9 +21,7 @@ public class Ciudad_Win extends javax.swing.JInternalFrame {
     /**
      * Creates new form Ciudad_Win
      */
-    private static final String HOST="localhost";
-    private static final String USER="root";
-    private static final String PASS="";
+
     String rutacity,ruta;
     public Ciudad_Win() {
         initComponents();
@@ -147,7 +145,7 @@ public class Ciudad_Win extends javax.swing.JInternalFrame {
 
     private void btn_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ingresarActionPerformed
         // TODO add your handling code here:
-        BaseDatos base = new BaseDatos(HOST,  USER, PASS);
+        BaseDatos base = new BaseDatos();
         base.addCiudad(txt_nombre.getText(), txt_descripcion.getText(), txt_poblacion.getText(), ruta, rutacity);
     }//GEN-LAST:event_btn_ingresarActionPerformed
 

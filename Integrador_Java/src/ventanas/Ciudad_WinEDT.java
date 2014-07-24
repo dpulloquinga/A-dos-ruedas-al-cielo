@@ -24,9 +24,7 @@ public class Ciudad_WinEDT extends javax.swing.JInternalFrame {
     /**
      * Creates new form Ciudad_Win
      */
-    private static final String HOST="localhost";
-    private static final String USER="root";
-    private static final String PASS="";
+    
     String rutacity,ruta,nombre;
     public Ciudad_WinEDT() {
         initComponents();
@@ -178,14 +176,12 @@ public class Ciudad_WinEDT extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 //         TODO add your handling code here:
-        BaseDatos bd = new BaseDatos(HOST,USER,PASS);
+        BaseDatos bd = new BaseDatos();
         LinkedList lista;
         lista = new LinkedList();
         lista =  bd.ObtenerCiudad_datos(cb_nombre.getSelectedItem().toString());
-        for (Object lista1 : lista) {
-            System.out.println(lista1);
-        }
         
+  
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
@@ -209,7 +205,7 @@ public class Ciudad_WinEDT extends javax.swing.JInternalFrame {
 public  void asignar(){
     LinkedList lista = new LinkedList();
    
-    BaseDatos bd = new BaseDatos(HOST,USER,PASS);
+    BaseDatos bd = new BaseDatos();
     lista= bd.ObtenerCiudad_nombre();
     DefaultComboBoxModel model = new DefaultComboBoxModel();
         for (Object lista1 : lista) {

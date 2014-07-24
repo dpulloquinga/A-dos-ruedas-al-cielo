@@ -5,20 +5,21 @@
 package conexion;
 
 import java.sql.*;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class BaseDatos {
-
+    private static final String HOST="localhost";
+    private static final String USER="root";
+    private static final String PASS="";
     Connection conexion;
     Statement st;
     
-    public BaseDatos(String host, String user, String pass) {
+    public BaseDatos() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            conexion = DriverManager.getConnection("jdbc:mysql://" + host + "/cielo", user, pass);
+            conexion = DriverManager.getConnection("jdbc:mysql://" + HOST + "/cielo", USER, PASS);
             st = conexion.createStatement();
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(BaseDatos.class.getName()).log(Level.SEVERE, null, ex);

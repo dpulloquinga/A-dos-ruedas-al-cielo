@@ -22,9 +22,7 @@ public class Rutas_Win extends javax.swing.JInternalFrame {
     /**
      * Creates new form Rutas_Win
      */
-    private static final String HOST="localhost";
-    private static final String USER="root";
-    private static final String PASS="";
+
     String ruta;
     public Rutas_Win() {
         initComponents();
@@ -181,7 +179,7 @@ public class Rutas_Win extends javax.swing.JInternalFrame {
 
     private void btn_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ingresarActionPerformed
         // TODO add your handling code here:
-        BaseDatos bd = new  BaseDatos(HOST,USER,PASS);
+        BaseDatos bd = new  BaseDatos();
         if (bd.addRuta(txt_nombre.getText(), txt_origen.getText(), txt_destino.getText(),txt_tiempo.getText(),ruta)) {
             JOptionPane.showMessageDialog(rootPane,"Ruta Ingresada correctamente");
         }

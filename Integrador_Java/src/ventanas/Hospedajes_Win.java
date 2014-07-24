@@ -131,7 +131,7 @@ public class Hospedajes_Win extends javax.swing.JInternalFrame {
 
     private void btn_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ingresarActionPerformed
         // TODO add your handling code here:
-        BaseDatos bd = new BaseDatos(HOST,USER, PASS);
+        BaseDatos bd = new BaseDatos();
         if (bd.addHospedaje(txt_nombre.getText(), txt_about.getText(), Integer.parseInt(txt_costo.getText()),txt_telefono.getText(),txt_direccion.getText(), ruta)) {
             JOptionPane.showMessageDialog(rootPane,"Hospedaje ingresado correctamente");
         }

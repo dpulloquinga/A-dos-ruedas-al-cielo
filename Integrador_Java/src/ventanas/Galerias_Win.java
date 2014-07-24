@@ -22,9 +22,6 @@ public class Galerias_Win extends javax.swing.JInternalFrame {
     /**
      * Creates new form Galerias_Win
      */
-    private static final String HOST="localhost";
-    private static final String USER="root";
-    private static final String PASS="";
     String ruta1,ruta2,ruta3;
     public Galerias_Win() {
         initComponents();
@@ -136,7 +133,7 @@ public class Galerias_Win extends javax.swing.JInternalFrame {
 
     private void btn_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ingresarActionPerformed
         // TODO add your handling code here:
-        BaseDatos bd = new BaseDatos(HOST, USER,PASS);
+        BaseDatos bd = new BaseDatos();
         if (bd.addGaleria(txt_nombre.getText(), ruta1, txt_about1.getText(), ruta2, txt_about2.getText(), ruta3, txt_about3.getText())) {
             JOptionPane.showMessageDialog(rootPane,"Galeria ingresado correctamente: "+txt_nombre.getText());
         }

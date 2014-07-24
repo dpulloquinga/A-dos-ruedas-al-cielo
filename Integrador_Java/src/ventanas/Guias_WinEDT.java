@@ -24,9 +24,6 @@ public class Guias_WinEDT extends javax.swing.JInternalFrame implements Runnable
     /**
      * Creates new form Guias_Win
      */
-    private static final String HOST="localhost";
-    private static final String USER="root";
-    private static final String PASS="";
     String ruta,nombre;
     public Guias_WinEDT() {
         initComponents();
@@ -271,7 +268,7 @@ public class Guias_WinEDT extends javax.swing.JInternalFrame implements Runnable
     @Override
     public void run() {
         String [] split = null;
-        BaseDatos bd = new BaseDatos(HOST,USER, PASS);
+        BaseDatos bd = new BaseDatos();
         String dato;
         ValidacionCedula validar = new ValidacionCedula();
         if (validar.validadorDeCedula(txt_cedula.getText())) {

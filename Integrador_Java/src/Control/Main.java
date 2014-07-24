@@ -1,6 +1,5 @@
 package Control;
 
-import conexion.BaseDatos;
 import ventanas.Login_Win;
 
 /*
@@ -16,8 +15,6 @@ import ventanas.Login_Win;
 
 public class Main {
     public static void main (String[] args){
-        BaseDatos conexion;
-        conexion = new BaseDatos("localhost","root","");
         Login_Win login = new Login_Win();
         login.setVisible(true);
     }

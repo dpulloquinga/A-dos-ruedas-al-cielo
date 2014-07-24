@@ -7,6 +7,8 @@
 package ventanas;
 
 import conexion.BaseDatos;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,9 +20,6 @@ public class Usuarios_Win extends javax.swing.JInternalFrame {
     /**
      * Creates new form Usuarios_Win
      */
-    private static final String HOST="localhost";
-    private static final String USER="root";
-    private static final String PASS="";
     public Usuarios_Win() {
         initComponents();
     }
@@ -94,10 +93,12 @@ public class Usuarios_Win extends javax.swing.JInternalFrame {
         Runnable runnable = new Runnable() {
             @Override
             public void run() {
-                BaseDatos bd = new BaseDatos(HOST,USER,PASS);
+                BaseDatos bd = new BaseDatos();
                 if (bd.addUser(txt_nick.getText(), txt_pass.getText(), txt_email.getText(),txt_nombre.getText(), txt_apellido.getText())) {
-                    JOptionPane.showMessageDialog(rootPane, "Usuario Ingresada conrrectamente");
+                    
+                        JOptionPane.showMessageDialog(rootPane, "Usuario Ingresada conrrectamente");
                 }
+                
                 else
                     JOptionPane.showMessageDialog(rootPane,"Se ha producido un error");
             }

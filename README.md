@@ -44,3 +44,34 @@ Lo mismo lo hacemos con un archivo llamado get-pip.py que viene a ser el script 
 **Paso 2**: Abrir cmd.exe como administrador.
 
 En el menú de inicio escriben cmd y cuando aparezca el icono, hace un click derecho sobre el y seleccionan la opción de abrir como administrador. Lo engorroso es que se abre en Windows\system32 y tendréis que navegar hasta el directorio donde están alojados los archivos. (en mi caso Descargas).
+
+**Paso 3**: Instalar setuptools (ez_setup.py)
+``` sh
+> python  ez_setup.py
+
+```
+
+**Paso 4**: Instalar pip (get-pip.py)
+```sh
+> python  get-pip.py
+
+```
+
+**Paso 5**: Editar el path de cmd.
+
+Pip se instalará dentro de los archivos de Python. En mi caso C:\Windows\Python33\Scripts\, de forma que si quieren utilizarlo deberían navegar hasta el directorio donde esté instalado con CMD y ejecutarlo. Esto es muy engorroso. Editando el path de CMD se puede hacer que podamos utilizar pip desde cualquier directorio donde esté CMD.
+
+Para ver los directorios en el path solo tienen que escribir path en cmd y os motrará el listado.
+
+> path
+
+Para añadir un directorio han de escribir la siguiente sintaxis.
+```sh
+>Path Unidad\Directorio;%path%
+
+En mi caso sería:
+
+>Path C:\Python33\Scripts;%path%
+```
+
+De esa forma ya podrían lanzar pip desde cualquier sitio.

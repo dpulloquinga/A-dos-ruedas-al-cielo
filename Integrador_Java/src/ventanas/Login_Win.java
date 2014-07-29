@@ -21,6 +21,10 @@ public class Login_Win extends javax.swing.JFrame implements Runnable{
 
     private   boolean estado;
     private String usuario,password;
+
+    public String getUsuario() {
+        return usuario;
+    }
    
     BaseDatos bd = new BaseDatos();
     Main_Win main = new Main_Win();

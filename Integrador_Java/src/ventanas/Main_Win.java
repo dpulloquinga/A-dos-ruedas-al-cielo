@@ -38,6 +38,7 @@ public class Main_Win extends javax.swing.JFrame {
         desktopPane = new javax.swing.JDesktopPane();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         openMenuItem = new javax.swing.JMenuItem();
@@ -46,6 +47,7 @@ public class Main_Win extends javax.swing.JFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
         exitMenuItem = new javax.swing.JMenuItem();
         volcanes = new javax.swing.JMenu();
+        jMenu6 = new javax.swing.JMenu();
         menuGuia = new javax.swing.JMenu();
         updateGuia = new javax.swing.JMenuItem();
         addGuia = new javax.swing.JMenuItem();
@@ -88,6 +90,10 @@ public class Main_Win extends javax.swing.JFrame {
         desktopPane.add(jLabel2);
         jLabel2.setBounds(750, 10, 76, 108);
 
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/graficas/LOGO-PRINCIPAL7.png"))); // NOI18N
+        desktopPane.add(jLabel3);
+        jLabel3.setBounds(70, 150, 680, 210);
+
         getContentPane().add(desktopPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 610));
 
         fileMenu.setMnemonic('f');
@@ -118,6 +124,20 @@ public class Main_Win extends javax.swing.JFrame {
         menuBar.add(fileMenu);
 
         volcanes.setText("Volcanes");
+
+        jMenu6.setText("Ingresar");
+        jMenu6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu6MouseClicked(evt);
+            }
+        });
+        jMenu6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu6ActionPerformed(evt);
+            }
+        });
+        volcanes.add(jMenu6);
+
         menuBar.add(volcanes);
 
         menuGuia.setMnemonic('e');
@@ -235,6 +255,11 @@ public class Main_Win extends javax.swing.JFrame {
         jMenu4.add(jMenuItem12);
 
         jMenuItem13.setText("Actualizar");
+        jMenuItem13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem13ActionPerformed(evt);
+            }
+        });
         jMenu4.add(jMenuItem13);
 
         menuBar.add(jMenu4);
@@ -357,6 +382,24 @@ public class Main_Win extends javax.swing.JFrame {
        dT.setVisible(true);
     }//GEN-LAST:event_jMenuItem11ActionPerformed
 
+    private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
+        // TODO add your handling code here:
+        Usuarios_WinEDT uwedt = new Usuarios_WinEDT();
+        desktopPane.add(uwedt);
+        uwedt.setVisible(true);
+    }//GEN-LAST:event_jMenuItem13ActionPerformed
+
+    private void jMenu6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenu6ActionPerformed
+
+    private void jMenu6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu6MouseClicked
+        // TODO add your handling code here:
+        Volcan_Win volcan_Win =  new Volcan_Win();
+        desktopPane.add(volcan_Win);
+        volcan_Win.setVisible(true);
+    }//GEN-LAST:event_jMenu6MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -390,11 +433,13 @@ public class Main_Win extends javax.swing.JFrame {
     private javax.swing.JMenu fileMenu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;

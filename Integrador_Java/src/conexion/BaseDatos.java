@@ -666,9 +666,101 @@ public class BaseDatos {
     }
          
        
+ public LinkedList obtenerNombreNick() {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        LinkedList lista = new LinkedList();
+        String sql = "SELECT * FROM cielo.usuarios_usuario;";
+        try {
+            conexion.setAutoCommit(false);
+            ps = conexion.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                lista.add(rs.getString("nickname"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(BaseDatos.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                ps.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(BaseDatos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+        return lista;
+
+    }   
        
+   public boolean updateUsuarios(String nickname,String password,String email,String nombre,String apellido){
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String sql = "UPDATE `cielo`.`usuarios_usuario`SET `password` =?,`email` =? ,`nombre` =? ,`apellido` = ? WHERE `nickname` =? ;";
+         System.out.println(sql);
+        
+        try {
+            conexion.setAutoCommit(false);
+            ps = conexion.prepareStatement(sql);
+            ps.setString(1,password);
+            ps.setString(2, email);
+            ps.setString(3, nombre);
+            ps.setString(4, apellido);
+            ps.setString(5, nickname);
+             int a = ps.executeUpdate();
+            conexion.commit();
+            if (a==1) {
+                return true;
+            }
+            
+        } catch (SQLException e) {
+            System.out.println(e);
+        } finally {
+            try {
+                ps.close();
+
+            } catch (SQLException ex) {
+                Logger.getLogger(BaseDatos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+        return false;
+    }    
        
-       
-       
-       
+   public LinkedList ObtenerUsuarios_datos(String usuario) {
+        Statement ps = null;
+        ResultSet rs;
+        LinkedList lista = new LinkedList();
+
+        String sql = "SELECT * FROM `cielo`.`usuarios_usuario` WHERE nickname = '" + usuario + "';";
+        try {
+            conexion.setAutoCommit(false);
+            ps = conexion.createStatement();
+            rs = ps.executeQuery(sql);
+            lista.clear();
+            while (rs.next()) {
+
+                lista.add(rs.getString("password"));
+                lista.add(rs.getString("email"));
+                lista.add(rs.getString("nombre"));
+                lista.add(rs.getString("apellido"));
+
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(BaseDatos.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                ps.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(BaseDatos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+        return lista;
+    }   
+   
+   
+   
+   
+   
+   
 }

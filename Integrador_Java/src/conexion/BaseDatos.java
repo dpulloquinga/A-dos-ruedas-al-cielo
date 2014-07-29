@@ -573,4 +573,102 @@ public class BaseDatos {
     }
     
     
+    public LinkedList obtenerNombreRutas() {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        LinkedList lista = new LinkedList();
+        String sql = "SELECT * FROM cielo.rutas_ruta;";
+        try {
+            conexion.setAutoCommit(false);
+            ps = conexion.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                lista.add(rs.getString("nombre"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(BaseDatos.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                ps.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(BaseDatos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+        return lista;
+
+    }
+    
+       public LinkedList ObtenerRuta_datos(String ruta) {
+        Statement ps = null;
+        ResultSet rs;
+        LinkedList lista = new LinkedList();
+
+        String sql = "SELECT * FROM `cielo`.`rutas_ruta` WHERE nombre = '" + ruta + "';";
+        try {
+            conexion.setAutoCommit(false);
+            ps = conexion.createStatement();
+            rs = ps.executeQuery(sql);
+            lista.clear();
+            while (rs.next()) {
+
+                lista.add(rs.getString("origen"));
+                lista.add(rs.getString("destino"));
+                lista.add(rs.getString("tiempo"));
+                lista.add(rs.getString("imagen"));
+
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(BaseDatos.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                ps.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(BaseDatos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+        return lista;
+    }
+
+  public boolean updateRutas(String nombre,String origen,String destino,int tiempo,String imagen){
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String sql = "UPDATE `cielo`.`rutas_ruta`SET `origen` =?,`destino` =? ,`tiempo` =? ,`imagen` = ? WHERE `nombre` =? ;";
+         System.out.println(sql);
+        
+        try {
+            conexion.setAutoCommit(false);
+            ps = conexion.prepareStatement(sql);
+            ps.setString(1,origen);
+            ps.setString(2, destino);
+            ps.setInt(3, tiempo);
+            ps.setString(4, imagen);
+            ps.setString(5, nombre);
+             int a = ps.executeUpdate();
+            conexion.commit();
+            if (a==1) {
+                return true;
+            }
+            
+        } catch (SQLException e) {
+            System.out.println(e);
+        } finally {
+            try {
+                ps.close();
+
+            } catch (SQLException ex) {
+                Logger.getLogger(BaseDatos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+        return false;
+    }
+         
+       
+       
+       
+       
+       
+       
 }

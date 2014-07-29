@@ -35,7 +35,7 @@ public class Volcan_Win extends javax.swing.JInternalFrame {
             model.addElement(lista1);
         }
         combo_rutas.setModel(model);
-        lista.clear();
+       
         LinkedList lista1 = new LinkedList();
        lista1 =  baseDatos.obtenerNombreRutas();
        model.removeAllElements();

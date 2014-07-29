@@ -22,9 +22,6 @@ public class Hospedajes_Win extends javax.swing.JInternalFrame {
     /**
      * Creates new form Hospedajes_Win
      */
-        private static final String HOST="localhost";
-    private static final String USER="root";
-    private static final String PASS="";
     String ruta;
     public Hospedajes_Win() {
         initComponents();

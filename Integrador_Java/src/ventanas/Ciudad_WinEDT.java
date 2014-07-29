@@ -114,6 +114,11 @@ public final class Ciudad_WinEDT extends javax.swing.JInternalFrame {
         getContentPane().add(btn_ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 240, -1, -1));
 
         btn_cancelar.setText("Cancelar");
+        btn_cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cancelarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 270, -1, -1));
 
         jLabel6.setText("Formulario de ingreso de Ciudades");
@@ -184,6 +189,15 @@ public final class Ciudad_WinEDT extends javax.swing.JInternalFrame {
         BaseDatos baseDatos =  new BaseDatos();
         if (baseDatos.updateCiudad(cb_nombre.getSelectedItem().toString(), txt_descripcion.getText(), txt_poblacion.getText(), ruta, rutacity)) {
             JOptionPane.showMessageDialog(rootPane,"Ingreso correcto");
+            btn_carbar_flag.setEnabled(false);
+            btn_cargar_city.setEnabled(false);
+           txt_descripcion.setEnabled(false);
+           txt_poblacion.setEnabled(false);
+           cb_nombre.setSelectedIndex(0);
+           txt_descripcion.setText("");
+        txt_poblacion.setText("");
+        pic_bandera.setIcon(null);
+        pic_ciudad.setIcon(null);
         }
         else
             JOptionPane.showMessageDialog(rootPane, "Ingreso Incorrecto, se ha producido un error");
@@ -207,8 +221,8 @@ public final class Ciudad_WinEDT extends javax.swing.JInternalFrame {
             txt_poblacion.setText(lista.get(2).toString());
             bandera= lista.get(3).toString();
             imagen = lista.get(4).toString();
-        System.out.println(bandera+"Bandera");
-            System.out.println(imagen+"Ciudad");
+            rutacity = imagen;
+            ruta = bandera;
         cargarFotoCiudad();
         cargarFotoBandera();
         btn_cancelar.setEnabled(true);
@@ -217,10 +231,16 @@ public final class Ciudad_WinEDT extends javax.swing.JInternalFrame {
         btn_ingresar.setEnabled(true);
         txt_descripcion.setEnabled(true);
         txt_poblacion.setEnabled(true);
+        
         }
    
            
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+    }//GEN-LAST:event_btn_cancelarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -9,6 +9,8 @@ package ventanas;
 import conexion.BaseDatos;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.util.LinkedList;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -17,14 +19,22 @@ import javax.swing.JOptionPane;
  *
  * @author davidpulloquinga
  */
-public class Galerias_Win extends javax.swing.JInternalFrame {
+public final class Galerias_WinEDT extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form Galerias_Win
      */
     String ruta1,ruta2,ruta3;
-    public Galerias_Win() {
+    public Galerias_WinEDT() {
         initComponents();
+        asignar();
+        this.btn_ingresar.setEnabled(false);
+        pic_imagen1.setEnabled(false);
+        pic_imagen2.setEnabled(false); 
+        pic_imagen3.setEnabled(false);
+        txt_about1.setEnabled(false);
+        txt_about2.setEnabled(false);
+        txt_about3.setEnabled(false);
     }
 
     /**
@@ -49,7 +59,8 @@ public class Galerias_Win extends javax.swing.JInternalFrame {
         btn_ingresar = new javax.swing.JButton();
         btn_cancelar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        txt_nombre = new javax.swing.JTextField();
+        cb_galeria = new javax.swing.JComboBox();
+        jButton1 = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -107,7 +118,7 @@ public class Galerias_Win extends javax.swing.JInternalFrame {
 
         getContentPane().add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, 270, 120));
 
-        btn_ingresar.setText("Ingresar");
+        btn_ingresar.setText("Actualizar");
         btn_ingresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_ingresarActionPerformed(evt);
@@ -116,50 +127,69 @@ public class Galerias_Win extends javax.swing.JInternalFrame {
         getContentPane().add(btn_ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 520, -1, -1));
 
         btn_cancelar.setText("Cancelar");
+        btn_cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cancelarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 520, -1, -1));
 
         jLabel2.setText("Nombre de la Galeria:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, -1, -1));
 
-        txt_nombre.addActionListener(new java.awt.event.ActionListener() {
+        cb_galeria.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
+        getContentPane().add(cb_galeria, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 60, 190, -1));
+
+        jButton1.setText("Cargar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_nombreActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(txt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, 200, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ingresarActionPerformed
         // TODO add your handling code here:
-        BaseDatos bd = new BaseDatos();
-        if (bd.addGaleria(txt_nombre.getText(), ruta1, txt_about1.getText(), ruta2, txt_about2.getText(), ruta3, txt_about3.getText())) {
-            JOptionPane.showMessageDialog(rootPane,"Galeria ingresado correctamente: "+txt_nombre.getText());
+     BaseDatos bd = new BaseDatos();
+       if (bd.updateGalerias(cb_galeria.getSelectedItem().toString(),ruta1,txt_about1.getText(),ruta2,txt_about2.getText(),ruta3,txt_about3.getText())) {
+          JOptionPane.showMessageDialog(rootPane,"Galeria actualizada correctamente: "+cb_galeria.getSelectedItem().toString());
             txt_about1.setText(null);
             txt_about2.setText(null);
             txt_about3.setText(null);
-            txt_nombre.setText(null);
+           
             pic_imagen1.setIcon(null);
             pic_imagen2.setIcon(null);
             pic_imagen3.setIcon(null);
+            this.btn_ingresar.setEnabled(false);
+        pic_imagen1.setEnabled(false);
+        pic_imagen2.setEnabled(false); 
+        pic_imagen3.setEnabled(false);
+        txt_about1.setEnabled(false);
+        txt_about2.setEnabled(false);
+        txt_about3.setEnabled(false);
         }
         else{
             JOptionPane.showMessageDialog(rootPane, "Se ha producido un error");
             txt_about1.setText(null);
             txt_about2.setText(null);
             txt_about3.setText(null);
-            txt_nombre.setText(null);
+           
             pic_imagen1.setIcon(null);
             pic_imagen2.setIcon(null);
             pic_imagen3.setIcon(null);
-        
-        }
+            this.btn_ingresar.setEnabled(false);
+        pic_imagen1.setEnabled(false);
+        pic_imagen2.setEnabled(false); 
+        pic_imagen3.setEnabled(false);
+        txt_about1.setEnabled(false);
+        txt_about2.setEnabled(false);
+        txt_about3.setEnabled(false);
+       
+       }
     }//GEN-LAST:event_btn_ingresarActionPerformed
-
-    private void txt_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_nombreActionPerformed
 
     private void pic_imagen1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pic_imagen1MouseClicked
         // TODO add your handling code here:
@@ -215,10 +245,46 @@ public class Galerias_Win extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_pic_imagen3MouseClicked
 
+    private void btn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+    }//GEN-LAST:event_btn_cancelarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+         BaseDatos bd = new BaseDatos();
+        LinkedList lista;
+        lista = new LinkedList();
+        lista =  bd.ObtenerGaleria_datos(cb_galeria.getSelectedItem().toString());
+        if (lista!=null) {
+           ruta1= lista.get(0).toString();
+           ruta2= lista.get(2).toString();
+          ruta3= lista.get(4).toString();
+           txt_about1.setText(lista.get(1).toString());
+            
+           txt_about2.setText(lista.get(3).toString());
+           txt_about3.setText( lista.get(5).toString());
+            cargarImagen1(ruta1);
+            cargarImagen2(ruta2);
+            cargarImagen3(ruta3);
+            this.btn_ingresar.setEnabled(false);
+        pic_imagen1.setEnabled(true);
+        pic_imagen2.setEnabled(true); 
+        pic_imagen3.setEnabled(true);
+        txt_about1.setEnabled(true);
+        txt_about2.setEnabled(true);
+        txt_about3.setEnabled(true);
+        btn_ingresar.setEnabled(true);
+            
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_cancelar;
     private javax.swing.JButton btn_ingresar;
+    private javax.swing.JComboBox cb_galeria;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane4;
@@ -230,6 +296,94 @@ public class Galerias_Win extends javax.swing.JInternalFrame {
     private javax.swing.JTextArea txt_about1;
     private javax.swing.JTextArea txt_about2;
     private javax.swing.JTextArea txt_about3;
-    private javax.swing.JTextField txt_nombre;
     // End of variables declaration//GEN-END:variables
+
+    public  void asignar(){
+    LinkedList lista = new LinkedList();
+   
+    BaseDatos bd = new BaseDatos();
+        lista = bd.obtenerNombreGalerias();
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        for (Object lista1 : lista) {
+            model.addElement(lista1);
+        }
+        cb_galeria.setModel(model);
+    }
+    public void cargarImagen1(String imagen){
+        if (imagen.startsWith("/")) {
+            Image preview = Toolkit.getDefaultToolkit().getImage(imagen);
+            if (preview != null) {
+                pic_imagen1.setText("");
+                ImageIcon icon = new ImageIcon(preview.getScaledInstance(pic_imagen1.getWidth(), pic_imagen1.getHeight(), Image.SCALE_DEFAULT));
+                pic_imagen1.setIcon(icon);
+                btn_ingresar.setEnabled(true);
+            } else {
+                System.out.println("Error");
+            }
+
+        } else {
+            String rutados = "/Users/davidpulloquinga/Documents/Proyectos/Integrador/Integrador/" + imagen;
+            System.out.println(rutados + "esta por este lado");
+            Image preview = Toolkit.getDefaultToolkit().getImage(rutados);
+            if (preview != null) {
+                pic_imagen1.setText("");
+                ImageIcon icon = new ImageIcon(preview.getScaledInstance(pic_imagen1.getWidth(), pic_imagen1.getHeight(), Image.SCALE_DEFAULT));
+                pic_imagen1.setIcon(icon);
+                btn_ingresar.setEnabled(true);
+            }
+        }
+    
+    }
+    
+     public void cargarImagen2(String imagen){
+        if (imagen.startsWith("/")) {
+            Image preview = Toolkit.getDefaultToolkit().getImage(imagen);
+            if (preview != null) {
+                pic_imagen2.setText("");
+                ImageIcon icon = new ImageIcon(preview.getScaledInstance(pic_imagen2.getWidth(), pic_imagen2.getHeight(), Image.SCALE_DEFAULT));
+                pic_imagen2.setIcon(icon);
+                btn_ingresar.setEnabled(true);
+            } else {
+                System.out.println("Error");
+            }
+
+        } else {
+            String rutados = "/Users/davidpulloquinga/Documents/Proyectos/Integrador/Integrador/" + imagen;
+            System.out.println(rutados + "esta por este lado");
+            Image preview = Toolkit.getDefaultToolkit().getImage(rutados);
+            if (preview != null) {
+                pic_imagen2.setText("");
+                ImageIcon icon = new ImageIcon(preview.getScaledInstance(pic_imagen2.getWidth(), pic_imagen2.getHeight(), Image.SCALE_DEFAULT));
+                pic_imagen2.setIcon(icon);
+                btn_ingresar.setEnabled(true);
+            }
+        }
+    
+    }
+      public void cargarImagen3(String imagen){
+        if (imagen.startsWith("/")) {
+            Image preview = Toolkit.getDefaultToolkit().getImage(imagen);
+            if (preview != null) {
+                pic_imagen3.setText("");
+                ImageIcon icon = new ImageIcon(preview.getScaledInstance(pic_imagen3.getWidth(), pic_imagen3.getHeight(), Image.SCALE_DEFAULT));
+                pic_imagen3.setIcon(icon);
+                btn_ingresar.setEnabled(true);
+            } else {
+                System.out.println("Error");
+            }
+
+        } else {
+            String rutados = "/Users/davidpulloquinga/Documents/Proyectos/Integrador/Integrador/" + imagen;
+            System.out.println(rutados + "esta por este lado");
+            Image preview = Toolkit.getDefaultToolkit().getImage(rutados);
+            if (preview != null) {
+                pic_imagen3.setText("");
+                ImageIcon icon = new ImageIcon(preview.getScaledInstance(pic_imagen3.getWidth(), pic_imagen3.getHeight(), Image.SCALE_DEFAULT));
+                pic_imagen3.setIcon(icon);
+                btn_ingresar.setEnabled(true);
+            }
+        }
+    
+    }
+
 }

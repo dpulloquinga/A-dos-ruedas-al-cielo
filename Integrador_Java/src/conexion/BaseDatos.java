@@ -367,15 +367,210 @@ public class BaseDatos {
             
         } catch (SQLException e) {
             System.out.println(e);
-        }finally {
+        } finally {
             try {
                 ps.close();
-                
+
             } catch (SQLException ex) {
                 Logger.getLogger(BaseDatos.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        
-    return false;
+
+        return false;
     }
+
+    public LinkedList obtenerNombreGalerias() {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        LinkedList lista = new LinkedList();
+        String sql = "SELECT `nombre_galeria` FROM `cielo`.`galerias_galeria`;";
+        try {
+            conexion.setAutoCommit(false);
+            ps = conexion.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                lista.add(rs.getString("nombre_galeria"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(BaseDatos.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                ps.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(BaseDatos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+        return lista;
+
+    }
+    public LinkedList ObtenerGaleria_datos(String galeria) {
+        Statement ps = null;
+        ResultSet rs;
+        LinkedList lista = new LinkedList();
+
+        String sql = "SELECT * FROM `cielo`.`galerias_galeria` WHERE nombre_galeria = '"+galeria+"';";
+        try {
+            conexion.setAutoCommit(false);
+            ps = conexion.createStatement();
+            rs = ps.executeQuery(sql);
+            lista.clear();
+            while (rs.next()) {
+ 
+                lista.add(rs.getString("imagen_1") );
+                lista.add(rs.getString("descripcion_1") );
+                lista.add(rs.getString("imagen_2") );
+                lista.add(rs.getString("descripcion_2") );
+                lista.add(rs.getString("imagen_3") );
+                lista.add(rs.getString("descripcion_3") );
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(BaseDatos.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                ps.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(BaseDatos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+        return lista;
+    }
+    
+    
+    public boolean updateGalerias(String nombre,String imagen_1,String descripcion_1,String imagen_2,String descripcion_2,String imagen_3,String descripcion_3){
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String sql = "UPDATE `cielo`.`galerias_galeria`SET `imagen_1` =?,`descripcion_1` =? ,`imagen_2` =? ,`descripcion_2` = ? ,`imagen_3` = ?,`descripcion_3` = ? WHERE `nombre_galeria` =? ;";
+         System.out.println(sql);
+        
+        try {
+            conexion.setAutoCommit(false);
+            ps = conexion.prepareStatement(sql);
+            ps.setString(1,imagen_1);
+            ps.setString(2, descripcion_1);
+            ps.setString(3, imagen_2);
+            ps.setString(4, descripcion_2);
+            ps.setString(5, imagen_3);
+            ps.setString(6, descripcion_3);
+            ps.setString(7, nombre);
+            
+             int a = ps.executeUpdate();
+            conexion.commit();
+            if (a==1) {
+                return true;
+            }
+            
+        } catch (SQLException e) {
+            System.out.println(e);
+        } finally {
+            try {
+                ps.close();
+
+            } catch (SQLException ex) {
+                Logger.getLogger(BaseDatos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+        return false;
+    }
+    
+    
+    public LinkedList obtenerNombreHospedajes() {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        LinkedList lista = new LinkedList();
+        String sql = "SELECT `nombre` FROM `cielo`.`hospedajes_hospedaje`;";
+        try {
+            conexion.setAutoCommit(false);
+            ps = conexion.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                lista.add(rs.getString("nombre"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(BaseDatos.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                ps.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(BaseDatos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+        return lista;
+
+    }
+    
+    
+    public LinkedList ObtenerHospedaje_datos(String hospedaje) {
+        Statement ps = null;
+        ResultSet rs;
+        LinkedList lista = new LinkedList();
+
+        String sql = "SELECT * FROM `cielo`.`hospedajes_hospedaje` WHERE nombre = '"+hospedaje+"';";
+        try {
+            conexion.setAutoCommit(false);
+            ps = conexion.createStatement();
+            rs = ps.executeQuery(sql);
+            lista.clear();
+            while (rs.next()) {
+ 
+                lista.add(rs.getString("descripcion") );
+                lista.add(rs.getString("costo") );
+                lista.add(rs.getString("telefono") );
+                lista.add(rs.getString("direccion") );
+                lista.add(rs.getString("imagen") );
+                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(BaseDatos.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                ps.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(BaseDatos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+        return lista;
+    }
+    
+    public boolean updateHospedajes(String nombre,String descripcion,int costo,String telefono,String direccion,String imagen){
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String sql = "UPDATE `cielo`.`hospedajes_hospedaje`SET `descripcion` =?,`costo` =? ,`telefono` =? ,`direccion` = ? ,`imagen` = ? WHERE `nombre` =? ;";
+         System.out.println(sql);
+        
+        try {
+            conexion.setAutoCommit(false);
+            ps = conexion.prepareStatement(sql);
+            ps.setString(1,descripcion);
+            ps.setInt(2, costo);
+            ps.setString(3, telefono);
+            ps.setString(4, direccion);
+            ps.setString(5, imagen);
+            ps.setString(6, nombre);
+            
+             int a = ps.executeUpdate();
+            conexion.commit();
+            if (a==1) {
+                return true;
+            }
+            
+        } catch (SQLException e) {
+            System.out.println(e);
+        } finally {
+            try {
+                ps.close();
+
+            } catch (SQLException ex) {
+                Logger.getLogger(BaseDatos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+        return false;
+    }
+    
+    
 }

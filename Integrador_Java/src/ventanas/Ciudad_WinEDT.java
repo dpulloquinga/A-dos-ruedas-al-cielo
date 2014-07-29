@@ -24,7 +24,7 @@ public class Ciudad_WinEDT extends javax.swing.JInternalFrame {
     /**
      * Creates new form Ciudad_Win
      */
-    
+       String bandera, imagen=null;
     String rutacity,ruta,nombre;
     public Ciudad_WinEDT() {
         initComponents();
@@ -176,12 +176,19 @@ public class Ciudad_WinEDT extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 //         TODO add your handling code here:
+     
         BaseDatos bd = new BaseDatos();
         LinkedList lista;
         lista = new LinkedList();
         lista =  bd.ObtenerCiudad_datos(cb_nombre.getSelectedItem().toString());
-        
-  
+   
+            txt_descripcion.setText(lista.get(1).toString());
+            txt_poblacion.setText(lista.get(2).toString());
+            bandera= lista.get(3).toString();
+            imagen = lista.get(4).toString();
+        System.out.println(bandera+"Bandera");
+            System.out.println(imagen+"Ciudad");
+        cargarFotoCiudad();
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
@@ -212,5 +219,32 @@ public  void asignar(){
             model.addElement(lista1);
         }
         cb_nombre.setModel(model);
-}       
 }
+public void cargarFotoCiudad(){
+if (imagen.startsWith("/")) {
+                    Image preview = Toolkit.getDefaultToolkit().getImage(imagen);
+                    if (preview != null) {
+                        pic_ciudad.setText("");
+                        ImageIcon icon = new ImageIcon(preview.getScaledInstance(pic_ciudad.getWidth(), pic_ciudad.getHeight(), Image.SCALE_DEFAULT));
+                        pic_ciudad.setIcon(icon);
+                    }
+                    else
+                    {
+                        System.out.println("Error");
+                    }
+                       
+                } else {
+                    String ruta2 = "/Users/davidpulloquinga/Documents/Proyectos/Integrador/Integrador/" + imagen;
+                    System.out.println(ruta2+"esta por este lado");
+                     Image preview = Toolkit.getDefaultToolkit().getImage(ruta2);
+                    if (preview != null) {
+                        pic_ciudad.setText("");
+                        ImageIcon icon = new ImageIcon(preview.getScaledInstance(pic_ciudad.getWidth(), pic_ciudad.getHeight(), Image.SCALE_DEFAULT));
+                        pic_ciudad.setIcon(icon);
+                    }
+                }
+
+
+}
+}
+

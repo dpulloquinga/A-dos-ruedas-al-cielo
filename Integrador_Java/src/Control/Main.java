@@ -15,7 +15,9 @@ import ventanas.Login_Win;
 
 public class Main {
     public static void main (String[] args){
-        Login_Win login = new Login_Win();
-        login.setVisible(true);
+
+        Login_Win login_Win = new Login_Win();
+        login_Win.setVisible(true);
+        
     }
 }

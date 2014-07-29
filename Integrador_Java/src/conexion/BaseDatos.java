@@ -317,6 +317,7 @@ public class BaseDatos {
         Statement ps = null;
         ResultSet rs;
         LinkedList lista = new LinkedList();
+       
         System.out.println(ciudad);
         String sql = "SELECT * FROM `cielo`.`ciudades_ciudad` WHERE nombre = '"+ciudad+"';";
         try {
@@ -328,6 +329,7 @@ public class BaseDatos {
                 lista.add(rs.getString("description") );
                 lista.add(rs.getString("poblacion") );
                 lista.add(rs.getString("bandera") );
+                lista.add(rs.getString("imagen"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(BaseDatos.class.getName()).log(Level.SEVERE, null, ex);

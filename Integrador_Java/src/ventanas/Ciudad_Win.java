@@ -11,6 +11,7 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -99,6 +100,11 @@ public class Ciudad_Win extends javax.swing.JInternalFrame {
         getContentPane().add(btn_ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 300, -1, -1));
 
         btn_cancelar.setText("Cancelar");
+        btn_cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cancelarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 340, -1, -1));
 
         jLabel6.setText("Formulario de ingreso de Ciudades");
@@ -146,8 +152,20 @@ public class Ciudad_Win extends javax.swing.JInternalFrame {
     private void btn_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ingresarActionPerformed
         // TODO add your handling code here:
         BaseDatos base = new BaseDatos();
-        base.addCiudad(txt_nombre.getText(), txt_descripcion.getText(), txt_poblacion.getText(), ruta, rutacity);
+        
+        if (base.addCiudad(txt_nombre.getText(), txt_descripcion.getText(), txt_poblacion.getText(), ruta, rutacity)) {
+            JOptionPane.showMessageDialog(rootPane, "Ingreso exito");
+                    
+        }
+        else
+            JOptionPane.showConfirmDialog(rootPane, "Error en el ingreso");
+             
     }//GEN-LAST:event_btn_ingresarActionPerformed
+
+    private void btn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+    }//GEN-LAST:event_btn_cancelarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -7,7 +7,6 @@
 package ventanas;
 
 import conexion.BaseDatos;
-import java.awt.Event;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;

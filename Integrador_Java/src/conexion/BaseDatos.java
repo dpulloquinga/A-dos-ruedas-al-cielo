@@ -343,4 +343,39 @@ public class BaseDatos {
         }
         return lista;
     }
+    
+     public boolean updateCiudad(String nombre,String descripcion,String poblacion,String bandera,String ciudad){
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String sql = "UPDATE `cielo`.`ciudades_ciudad`SET `description` =?,`poblacion` =? ,`bandera` =? ,`imagen` = ? WHERE `nombre` =? ;";
+         System.out.println(sql);
+        
+        try {
+            conexion.setAutoCommit(false);
+            ps = conexion.prepareStatement(sql);
+            ps.setString(1,descripcion);
+            ps.setString(2, poblacion);
+            ps.setString(3, bandera);
+            ps.setString(4, ciudad);
+            ps.setString(5, nombre);
+            
+             int a = ps.executeUpdate();
+            conexion.commit();
+            if (a==1) {
+                return true;
+            }
+            
+        } catch (SQLException e) {
+            System.out.println(e);
+        }finally {
+            try {
+                ps.close();
+                
+            } catch (SQLException ex) {
+                Logger.getLogger(BaseDatos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+    return false;
+    }
 }

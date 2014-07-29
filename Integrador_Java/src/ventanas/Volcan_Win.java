@@ -28,19 +28,45 @@ public class Volcan_Win extends javax.swing.JInternalFrame {
     public Volcan_Win() {
         
         initComponents();
+        cargarRutas();
+        cargarCiudad();
+        cargarGalerias();
+    }
+
+    private void cargarCiudad() {
+        LinkedList lista2 = new LinkedList();
+        lista2 =  baseDatos.ObtenerCiudad_nombre();
+        DefaultComboBoxModel model1 = new DefaultComboBoxModel();
+        for (Object lista3 : lista2) {
+            model1.addElement(lista3);
+        }
+        combo_ciudad.setModel(model1);
+    }
+     private void cargarHospedaje() {
+        LinkedList lista2 = new LinkedList();
+        lista2 =  baseDatos.obtenerNombreHospedajes();
+        DefaultComboBoxModel model1 = new DefaultComboBoxModel();
+        for (Object lista3 : lista2) {
+            model1.addElement(lista3);
+        }
+        combo_hospedaje.setModel(model1);
+    }
+    private void cargarGalerias() {
+        LinkedList lista2 = new LinkedList();
+        lista2 =  baseDatos.obtenerNombreGalerias();
+        DefaultComboBoxModel model1 = new DefaultComboBoxModel();
+        for (Object lista3 : lista2) {
+            model1.addElement(lista3);
+        }
+        combo_galerias.setModel(model1);
+    }
+
+    private void cargarRutas() {
         LinkedList lista = new LinkedList();
-       lista =  baseDatos.obtenerNombreRutas();
-       DefaultComboBoxModel model = new DefaultComboBoxModel();
+        lista =  baseDatos.obtenerNombreRutas();
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
         for (Object lista1 : lista) {
             model.addElement(lista1);
-        }
-        combo_rutas.setModel(model);
-       
-        LinkedList lista1 = new LinkedList();
-       lista1 =  baseDatos.obtenerNombreRutas();
-       model.removeAllElements();
-        for (Object lista2 : lista1) {
-            model.addElement(lista2);
         }
         combo_rutas.setModel(model);
     }

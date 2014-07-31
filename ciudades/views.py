@@ -1,10 +1,12 @@
-from django.shortcuts import render
+from django.template import Context
 from django.http import HttpResponse
 import datetime
-from django.template import RequestContext,loader
+from django.template.loader import get_template
 from django.shortcuts import render_to_response
 # Create your views here.
 def home(request):
 	now = datetime.datetime.now()
-	html = "<html><body>La hora es %s.</body></html>" %now
+	t = get_template("index.html")
+	c = Context()
+	html = t.render(c)
 	return HttpResponse(html)

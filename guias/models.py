@@ -12,5 +12,7 @@ class Guia(models.Model):
 	telefono = models.CharField(max_length=10)
 	foto = models.ImageField(upload_to='cargas/')
 	descripcion = models.TextField()
+
 	def __unicode__(self):
-		return self.nombre
+		name= self.nombre+" "+self.apellido
+		return name

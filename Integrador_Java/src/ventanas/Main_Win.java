@@ -47,7 +47,7 @@ public class Main_Win extends javax.swing.JFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
         exitMenuItem = new javax.swing.JMenuItem();
         volcanes = new javax.swing.JMenu();
-        jMenu6 = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
         menuGuia = new javax.swing.JMenu();
         updateGuia = new javax.swing.JMenuItem();
         addGuia = new javax.swing.JMenuItem();
@@ -67,12 +67,6 @@ public class Main_Win extends javax.swing.JFrame {
         jMenuItem12 = new javax.swing.JMenuItem();
         jMenuItem13 = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
-        jMenuItem14 = new javax.swing.JMenuItem();
-        jMenuItem15 = new javax.swing.JMenuItem();
-        jMenuItem16 = new javax.swing.JMenuItem();
-        jMenuItem19 = new javax.swing.JMenuItem();
-        jMenuItem17 = new javax.swing.JMenuItem();
-        jMenuItem18 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -125,18 +119,13 @@ public class Main_Win extends javax.swing.JFrame {
 
         volcanes.setText("Volcanes");
 
-        jMenu6.setText("Ingresar");
-        jMenu6.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu6MouseClicked(evt);
-            }
-        });
-        jMenu6.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem4.setText("Añadir");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu6ActionPerformed(evt);
+                jMenuItem4ActionPerformed(evt);
             }
         });
-        volcanes.add(jMenu6);
+        volcanes.add(jMenuItem4);
 
         menuBar.add(volcanes);
 
@@ -265,30 +254,6 @@ public class Main_Win extends javax.swing.JFrame {
         menuBar.add(jMenu4);
 
         jMenu5.setText("Busqueda");
-
-        jMenuItem14.setText("Guias");
-        jMenu5.add(jMenuItem14);
-
-        jMenuItem15.setText("Ciudades");
-        jMenuItem15.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem15ActionPerformed(evt);
-            }
-        });
-        jMenu5.add(jMenuItem15);
-
-        jMenuItem16.setText("Galerias");
-        jMenu5.add(jMenuItem16);
-
-        jMenuItem19.setText("Hospedajes");
-        jMenu5.add(jMenuItem19);
-
-        jMenuItem17.setText("Rutas");
-        jMenu5.add(jMenuItem17);
-
-        jMenuItem18.setText("Volcanes");
-        jMenu5.add(jMenuItem18);
-
         menuBar.add(jMenu5);
 
         setJMenuBar(menuBar);
@@ -320,10 +285,6 @@ public class Main_Win extends javax.swing.JFrame {
         desktopPane.add(dT);
         dT.setVisible(true);
     }//GEN-LAST:event_jMenuItem7ActionPerformed
-
-    private void jMenuItem15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem15ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem15ActionPerformed
 
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
         // TODO add your handling code here:
@@ -389,16 +350,13 @@ public class Main_Win extends javax.swing.JFrame {
         uwedt.setVisible(true);
     }//GEN-LAST:event_jMenuItem13ActionPerformed
 
-    private void jMenu6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu6ActionPerformed
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenu6ActionPerformed
-
-    private void jMenu6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu6MouseClicked
-        // TODO add your handling code here:
-        Volcan_Win volcan_Win =  new Volcan_Win();
+        Volcan_Win volcan_Win = new Volcan_Win();
         desktopPane.add(volcan_Win);
         volcan_Win.setVisible(true);
-    }//GEN-LAST:event_jMenu6MouseClicked
+               
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -439,20 +397,14 @@ public class Main_Win extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem13;
-    private javax.swing.JMenuItem jMenuItem14;
-    private javax.swing.JMenuItem jMenuItem15;
-    private javax.swing.JMenuItem jMenuItem16;
-    private javax.swing.JMenuItem jMenuItem17;
-    private javax.swing.JMenuItem jMenuItem18;
-    private javax.swing.JMenuItem jMenuItem19;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;

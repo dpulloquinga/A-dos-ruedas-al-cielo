@@ -12,7 +12,7 @@ class Volcan(models.Model):
 	descripcion = models.TextField()
 	rutas = models.ForeignKey(Ruta)
 	guias = models.ManyToManyField(Guia)	
-	galerias = models.ForeignKey(Galeria)
+	galerias = models.OneToOneField(Galeria)
 	hospedaje = models.ManyToManyField(Hospedaje)
 	ciudad = models.OneToOneField(Ciudad)
 	def __unicode__(self):

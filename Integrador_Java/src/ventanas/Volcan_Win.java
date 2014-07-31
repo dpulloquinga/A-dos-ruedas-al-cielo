@@ -9,6 +9,7 @@ package ventanas;
 import conexion.BaseDatos;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.util.Iterator;
 import java.util.LinkedList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
@@ -31,22 +32,37 @@ public class Volcan_Win extends javax.swing.JInternalFrame {
         cargarRutas();
         cargarCiudad();
         cargarGalerias();
+        cargarHospedaje();
+        cargarGuias();
     }
 
     private void cargarCiudad() {
         LinkedList lista2 = new LinkedList();
         lista2 =  baseDatos.ObtenerCiudad_nombre();
         DefaultComboBoxModel model1 = new DefaultComboBoxModel();
-        for (Object lista3 : lista2) {
+        for (Iterator it = lista2.iterator(); it.hasNext();) {
+            Object lista3 = it.next();
             model1.addElement(lista3);
         }
         combo_ciudad.setModel(model1);
+    }
+    private void cargarGuias() {
+        LinkedList lista2 = new LinkedList();
+        lista2 =  baseDatos.obtenerNombreGuias();
+        DefaultComboBoxModel model1 = new DefaultComboBoxModel();
+        for (Iterator it = lista2.iterator(); it.hasNext();) {
+            Object lista3 = it.next();
+            model1.addElement(lista3);
+        }
+       
+        combo_guias.setModel(model1);
     }
      private void cargarHospedaje() {
         LinkedList lista2 = new LinkedList();
         lista2 =  baseDatos.obtenerNombreHospedajes();
         DefaultComboBoxModel model1 = new DefaultComboBoxModel();
-        for (Object lista3 : lista2) {
+        for (Iterator it = lista2.iterator(); it.hasNext();) {
+            Object lista3 = it.next();
             model1.addElement(lista3);
         }
         combo_hospedaje.setModel(model1);

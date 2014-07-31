@@ -8,5 +8,6 @@ class Usuario(models.Model):
 	nombre = models.CharField(max_length=10)
 	apellido = models.CharField(max_length=10)
 	def __unicode__(self):
+		nick = self.nickname+" Nombres: "+self.nombre+" "+self.apellido
 		return self.nickname
 		

@@ -97,5 +97,9 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
-
+STATICFILES_DIRS = (
+    '/Users/davidpulloquinga/Documents/Proyectos/Integrador/Integrador/static',
+    )
+STATIC_ROOT = ''
 STATIC_URL = '/static/'
+

@@ -759,7 +759,31 @@ public class BaseDatos {
     }   
    
    
-   
+   public LinkedList obtenerNombreGuias() {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        LinkedList lista = new LinkedList();
+        String sql = "SELECT * FROM cielo.guias_guia;";
+        try {
+            conexion.setAutoCommit(false);
+            ps = conexion.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                lista.add(rs.getString("cedula"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(BaseDatos.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                ps.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(BaseDatos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+        return lista;
+
+    }
    
    
    

@@ -6,7 +6,12 @@
 
 package ventanas;
 
+import conexion.BaseDatos;
 import java.awt.Component;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import net.sf.jasperreports.engine.JRException;
 
 /**
  *
@@ -95,6 +100,11 @@ public class Main_Win extends javax.swing.JFrame {
 
         openMenuItem.setMnemonic('o');
         openMenuItem.setText("Reporte de Guias");
+        openMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                openMenuItemActionPerformed(evt);
+            }
+        });
         fileMenu.add(openMenuItem);
 
         jMenuItem1.setText("Reporte de Ciudades");
@@ -357,6 +367,17 @@ public class Main_Win extends javax.swing.JFrame {
         volcan_Win.setVisible(true);
                
     }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void openMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openMenuItemActionPerformed
+        try {
+            // TODO add your handling code here:
+            BaseDatos baseDatos = new BaseDatos();
+            baseDatos.reporteGuia();
+        } catch (SQLException | JRException ex) {
+            Logger.getLogger(Main_Win.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+    }//GEN-LAST:event_openMenuItemActionPerformed
 
     /**
      * @param args the command line arguments

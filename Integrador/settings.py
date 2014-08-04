@@ -45,6 +45,7 @@ INSTALLED_APPS = (
     'ciudades',
     'hospedajes',
     'usuarios',
+    'rest_framework',
 )
 
 MIDDLEWARE_CLASSES = (

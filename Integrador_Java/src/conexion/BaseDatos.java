@@ -4,10 +4,20 @@
  */
 package conexion;
 
+import java.net.URL;
 import java.sql.*;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
+
+
 
 public class BaseDatos {
     private static final String HOST="localhost";
@@ -551,7 +561,6 @@ public class BaseDatos {
             ps.setString(4, direccion);
             ps.setString(5, imagen);
             ps.setString(6, nombre);
-            
              int a = ps.executeUpdate();
             conexion.commit();
             if (a==1) {
@@ -784,7 +793,23 @@ public class BaseDatos {
         return lista;
 
     }
+   public void reporteGuia() throws SQLException, JRException{
+    JasperReport jasperReport;
+     JasperPrint jasperPrint;
+     try{
+        String  in="/Users/davidpulloquinga/Documents/Proyectos/Integrador/Integrador/Integrador_Java/src/reportes/guia.jasper";
+        jasperReport=(JasperReport)JRLoader.loadObject(in);
+        jasperPrint = JasperFillManager.fillReport(jasperReport, new HashMap() , conexion );
+        JasperViewer vw = new JasperViewer(jasperPrint,false);
+        vw.setTitle("Reporte de Guia");
+        vw.setVisible(true);
+        
+    }catch (JRException ex){
+        System.err.println( "Error iReport: " + ex.getMessage() );
+    }
+       
    
+   }
    
    
 }
